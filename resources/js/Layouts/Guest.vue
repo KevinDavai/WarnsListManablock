@@ -1,18 +1,22 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center my-5">
-      <div class="col-sm-12 col-md-8 col-lg-5 my-5">
-        <div class="d-flex justify-content-center mb-3">
-          <Link href="/">
-            <breeze-application-logo width="82" />
-          </Link>
-        </div>
+<div class="area">
+              <ul :v-if="urlPath == '/login'" class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul></div>
 
-        <div class="card shadow-sm px-3">
+  <div class="container height-100 d-flex justify-content-center align-items-center">
+      
+
           <slot />
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -24,6 +28,11 @@ export default {
   components: {
     BreezeApplicationLogo,
     Link,
-  }
+  },
+  data() {
+    return {
+        urlPath: location.pathname,
+    }
+  },
 }
 </script>

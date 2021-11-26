@@ -1,7 +1,34 @@
 <template>
+<Preloader></Preloader>
   <Head title="Log in" />
 
-  <div class="card-body">
+      <div class="row justify-content-around">
+      <div class="col-6">
+        <button style="--content: 'Connexion';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#connexionModal">
+          <div class="left"></div>
+            Connexion
+          <div class="right"></div>
+        </button>
+      </div>
+      <div class="col-6">
+        <button style="--content: 'S\'enregistrer';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#emailModal">
+          <div class="left"></div>
+            S'enregistrer
+          <div class="right"></div>
+        </button>
+      </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-center">
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Connexion</p>
+      </div>
+      <div class="modal-body">
+      <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
+          <div class="card-body text-start">
 
     <breeze-validation-errors class="mb-3" />
 
@@ -9,44 +36,28 @@
       {{ status }}
     </div>
 
-    <form @submit.prevent="submit">
-      <div class="mb-3">
-        <breeze-label for="email" value="Email" />
-        <breeze-input id="email" type="email" v-model="form.email" required autofocus />
+    <form @submit.prevent="submit" id="loginForm">
+      <div class="form-floating mb-3">
+          <input type="email" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.email" required autofocus/>
+          <label for="floatingInput">Email</label>
       </div>
 
-      <div class="mb-3">
-        <breeze-label for="password" value="Password" />
-        <breeze-input id="password" type="password" v-model="form.password" required autocomplete="current-password" />
-      </div>
-
-      <div class="mb-3">
-        <div class="form-check">
-          <breeze-checkbox id="remember_me" name="remember" v-model:checked="form.remember" />
-
-          <label class="form-check-label" for="remember_me">
-            Remember Me
-          </label>
-        </div>
-      </div>
-
-      <div class="mb-0">
-        <div class="d-flex justify-content-end align-items-baseline">
-          <Link v-if="canResetPassword" :href="route('password.request')" class="text-muted me-3">
-            Forgot your password?
-          </Link>
-
-          <breeze-button class="ms-4" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
-            <div v-show="form.processing" class="spinner-border spinner-border-sm" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-            
-            Log in
-          </breeze-button>
-        </div>
+      <div class="form-floating mb-3">
+          <input type="password" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.password" required autocomplete="current-password"/>
+          <label for="floatingInput">Mot de passe</label>
       </div>
     </form>
   </div>
+      </div>
+
+          <div class="modal-footer flex-center justify-content-center">
+        <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
+        <input type="submit" form="loginForm" class="btn-valid-modal waves-effect waves-light" value="Se connecter" data-bs-dismiss="modal"> 
+      </div>
+    </div>
+  
+  </div>
+</div>
 </template>
 
 <script>
@@ -57,6 +68,7 @@ import BreezeCheckbox from '@/Components/Checkbox.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
+import Preloader from '@/Components/Preloader.vue'
 
 export default {
   layout: BreezeGuestLayout,
@@ -69,6 +81,7 @@ export default {
     BreezeLabel,
     BreezeValidationErrors,
     Link,
+    Preloader,
   },
 
   props: {
