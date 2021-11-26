@@ -3,30 +3,20 @@
   <breeze-authenticated-layout>
   <Preloader>
   </Preloader>
-    <template #header>
-      <h2 class="h4 font-weight-bold">
-        Dashboard
-      </h2>
-    </template>
 
-    <div class="card my-4 shadow-sm">
-      <div class="card-body">
-        You're logged in!
-      </div>
-    </div>
 
-    <div class="container mt-5">
-    <table class="table table-borderless table-responsive card-1 p-4 table-striped table-hover">
+
+    <div class="container-xxl mt-5">
+    <table class="table table-dark table-borderless table-responsive card-1 p-4 table-striped table-hover">
         <thead>
             <tr class="border-bottom border-top">
-                <th> <span class="ms-2">Pseudo</span> </th>
-                <th> <span class="ms-2">Averti par</span> </th>
-                <th> <span class="ms-2">Raison</span> </th>
-                <th> <span class="ms-2">Description</span> </th>
-                <th> <span class="ms-2">Date</span> </th>
-            </tr>
+                <th class="col-1 p-top-table"><span class="ms-2">Pseudo</span></th>
+                <th class="col-1 p-top-table"><span class="ms-2">Averti par</span></th>
+                <th class="col-2 p-top-table"><span class="ms-2">Raison</span></th>
+                <th class="col-4 p-top-table"><span class="ms-2">Description</span></th>
+                <th class="col-1 p-top-table"><span class="ms-2">Date</span></th></tr>
         </thead>
-        <tbody>
+        <tbody class="align-middle">
             <tr class="border-bottom border-top">
                 <td>
                     <div class="p-2 d-flex flex-row align-items-center">
@@ -37,10 +27,10 @@
                     <div class="p-2"> <span class="font-weight-bold">Selol</span> </div>
                 </td>
                 <td>
-                    <div class="p-2 d-flex flex-column"> <span>Peche Semi-AFK</span> </div>
+                    <div class="p-2 d-flex flex-column"> <span>Peche Semi-AFKPeche Semi-AFKPeche Semi-AFK</span> </div>
                 </td>
                 <td>
-                    <div class="p-2 d-flex flex-column"> <span>IL A MANGER DES POISSONS PENDANT LA PECHE AFK</span> </div>
+                    <div class="p-2 d-flex flex-column"> <span>IL A MANGER DES POISSONSIL A MANGER DES POISSONS PENDANT LA PECHE AFK</span> </div>
                 </td>
                 <td>
                     <div class="p-2"> <span class="d-block font-weight-bold">28/01/2002 à 21h34</span> </div>
@@ -128,7 +118,7 @@
     </table>
 </div>
 
-      <table class="table table-dark table-striped table-hover mt-4 w-auto">
+      <!--<table class="table table-dark table-striped table-hover mt-4 w-auto">
         <thead>
           <tr>
             <th scope="col">Pseudo</th>
@@ -154,7 +144,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </table>-->
 
     <div class='row'>
       <h1>Warns</h1>
@@ -211,19 +201,7 @@ export default {
       },
   },
   mounted() {
-    Pusher.logToConsole = true;
 
-    var vm = this;
-
-    var pusher = new Pusher('f6e2c5eefed30ef289a8', {
-      cluster: 'eu'
-    });
-
-    var channel = pusher.subscribe('warns');
-    channel.bind('addWarn', function(data) {
-        console.log(data);
-        vm.warnList = data.warns
-    });
   },
 }
 </script>

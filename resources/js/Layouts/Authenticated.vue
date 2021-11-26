@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
-      <div class="container">
+  <div class="bg-19191d">
+    <nav class="navbar navbar-expand-md navbar-light bg-purple-me border-bottom sticky-top">
+      <div class="container-xxl">
         <!-- Logo -->
         <a class="navbar-brand" href="/">
           <Link :href="route('dashboard')">
@@ -43,13 +43,6 @@
         </div>
       </div>
     </nav>
-
-    <!-- Page Heading -->
-    <header class="d-flex py-3 bg-white shadow-sm border-bottom">
-      <div class="container">
-        <slot name="header" />
-      </div>
-    </header>
 
     <!-- Page Content -->
     <main class="container my-5">

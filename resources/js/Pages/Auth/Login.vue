@@ -11,7 +11,7 @@
         </button>
       </div>
       <div class="col-6">
-        <button style="--content: 'S\'enregistrer';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#emailModal">
+        <button style="--content: 'S\'enregistrer';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#registerModal">
           <div class="left"></div>
             S'enregistrer
           <div class="right"></div>
@@ -22,7 +22,7 @@
 <!-- Modal -->
 <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content text-center">
+    <div class="modal-content text-center no-border">
       <div class="modal-header d-flex justify-content-center">
         <p class="heading">Connexion</p>
       </div>
@@ -58,6 +58,21 @@
   
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-center no-border">
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">S'enregistrer</p>
+      </div>
+      <div class="modal-body">
+      <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
+      <registerForm></registerForm>
+      </div>
+    </div>  
+  </div>
+</div>
 </template>
 
 <script>
@@ -69,6 +84,7 @@ import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
 import Preloader from '@/Components/Preloader.vue'
+import registerForm from '@/Pages/Auth/Register.vue'
 
 export default {
   layout: BreezeGuestLayout,
@@ -82,6 +98,7 @@ export default {
     BreezeValidationErrors,
     Link,
     Preloader,
+    registerForm,
   },
 
   props: {
