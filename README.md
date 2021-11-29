@@ -34,6 +34,7 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://gfycat.com/forsakeninbornimpala)
+[![Product Name Screen Shot][product-screenshot2]](https://i.imgur.com/Dn9HfVq.png)
 
 The interest of this project was to create a Warn liste and to learn this magnificent Laravel framework with VueJS
 
@@ -99,4 +100,5 @@ Project Link: [https://github.com/KevinDavai/WarnsListYCraft](https://github.com
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [product-screenshot]: https://i.imgur.com/JPuS5Az.png
+[product-screenshot2]: https://i.imgur.com/Dn9HfVq.png
 [product-screenshot2]: https://i.imgur.com/Dn9HfVq.png
