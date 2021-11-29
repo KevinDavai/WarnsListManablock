@@ -24,7 +24,6 @@
             this.isLoading = true;
             var vm = this;
             var someElement = document.getElementsByClassName("vld-icon");
-            someElement.innerHTML += "<h3>This is the text which has been inserted by JS</h3>";
             someElement.className += " animation__shake";//add "newclass" to element (space in front is important)
             function first(callback) {
                 setTimeout(function() {

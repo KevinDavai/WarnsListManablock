@@ -22,9 +22,9 @@ class WarnAdded implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($warn)
     {
-        $this->warns = Warns::all();
+        $this->warns = $warn;
     }
 
     /**
@@ -35,6 +35,16 @@ class WarnAdded implements ShouldBroadcast
     public function broadcastOn()
     {
         return new Channel('warns');
+    }
+    
+    /**
+     * Get the data to broadcast.
+     *
+     * @return array
+     */
+    public function broadcastWith()
+    {
+        return ['warn' => $this->warns];
     }
 
     public function broadcastAs()

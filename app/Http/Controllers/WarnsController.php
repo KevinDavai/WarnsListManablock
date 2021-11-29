@@ -6,6 +6,7 @@ use App\Models\Warns;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Events\WarnAdded;
+use App\Models\Warns_type;
 
 class WarnsController extends Controller
 {
@@ -21,27 +22,36 @@ class WarnsController extends Controller
 
     public function getListWarns()
     {
-        $warns = Warns::all();
+        $warns = Warns::orderBy('created_at', 'desc')->paginate(7);
         return response()->json($warns);
+    }
+
+    public function getListTypeWarns()
+    {
+        $typeWarns = Warns_type::all();
+        return response()->json($typeWarns);
     }
 
     public function postWarn(Request $request)
     {
         $request->validate([
             'pseudo' => ['required'],
-            'description' => ['required', 'string'],
+            'description' => ['string', 'nullable'],
             'warn' => ['required', 'string'],
             'moderateur' => ['required'],
         ]);
 
+        if($request->description == null) 
+            $request->description = "Aucune";
+
         $warn = Warns::create([
             'pseudo' => $request->pseudo,
             'description' => $request->description,
-            'warn' => $request->warn,
+            'warn_name' => $request->warn,
             'moderateur' => $request->moderateur,
         ]);
 
-        event(new WarnAdded());
+        event(new WarnAdded($warn));
 
         // Send response
         $response = [

@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/warnlist', [WarnsController::class, 'getListWarns'])->name('api.getListWarn');
+Route::get('/typewarnlist', [WarnsController::class, 'getListTypeWarns'])->name('api.getListTypeWarn');
 Route::post('/postWarn', [WarnsController::class, 'postWarn'])->name('api.postWarn');

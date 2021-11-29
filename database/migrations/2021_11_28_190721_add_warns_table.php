@@ -16,7 +16,7 @@ class AddWarnsTable extends Migration
         Schema::create('warns', function (Blueprint $table) {
             $table->id();
             $table->string('pseudo');
-            $table->string('warn');
+            $table->string('warn_name');
             $table->string('description');
             $table->string('modérateur');
             $table->timestamps();
