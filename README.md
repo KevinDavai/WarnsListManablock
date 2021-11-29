@@ -33,16 +33,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://thumbs.gfycat.com/WaryBonyCougar-mobile.mp4)
+[![Product Name Screen Shot][product-screenshot]](https://gfycat.com/forsakeninbornimpala)
 
-The interest of this project was to create a Warn listing and to learn this magnificent Laravel framework
+The interest of this project was to create a Warn liste and to learn this magnificent Laravel framework with VueJS
 
-What we have learned:
-* This project allowed us to progress enormously in javascript, especially with Ajax.
-* We also learned more with the model view controllers
-* We also trained on flexboxes as well as bootstrap 😄
+What I have learned:
+* VueJS.
+* Laravel
+* WebSockect with broadcasting Event Laravel
 
-Of course, if you have any suggestions or challenges, or even advice, We would be happy to make them happen
+Of course, if you have any suggestions or challenges, or even advice, I would be happy to make them happen
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
@@ -50,15 +50,15 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-* [Symfony](https://symfony.com/)
-* [Bootswatch](https://bootswatch.com/flatly/)
+* [Laravel](https://laravel.com/)
+* [Pusher](https://pusher.com/)
 * [Mysql](https://www.mysql.com/fr/)
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/Nours86/steamLike/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/KevinDavai/WarnsListYCraft/issues) for a list of proposed features (and known issues).
 
 
 <!-- LICENSE -->
@@ -73,13 +73,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Davailles Kevin - [@nours#3434](https://discord.gg) - davailleskevin@gmail.com
 
-Project Link: [https://github.com/KevinDavai/steamLike](https://github.com/Nours86/steamLike)
+Project Link: [https://github.com/KevinDavai/WarnsListYCraft](https://github.com/KevinDavai/WarnsListYCraft)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Font Awesome](https://fontawesome.com)
+
 
 
 
@@ -98,3 +99,4 @@ Project Link: [https://github.com/KevinDavai/steamLike](https://github.com/Nours
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [product-screenshot]: https://i.imgur.com/JPuS5Az.png
+[product-screenshot2]: https://i.imgur.com/Dn9HfVq.png
