@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Warns_type extends Model
+class Rondes extends Model
 {
     use HasFactory;
 
-    
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'description',
+        'pseudo',
     ];
 
 
@@ -28,4 +28,5 @@ class Warns_type extends Model
     protected $casts = [
         'created_at' => 'datetime:Y-m-d',
     ];
+
 }

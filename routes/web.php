@@ -2,9 +2,12 @@
 
 use App\Events\test;
 use Inertia\Inertia;
+use App\Events\RondeAdded;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarnsController;
+use App\Http\Controllers\RondesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,11 @@ use App\Http\Controllers\WarnsController;
 |
 */
 
-Route::get('/', [WarnsController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [RondesController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/rondelist', [RondesController::class, 'getListRonde'])->middleware(['auth'])->name('getListRonde');
+Route::get('/getRole', [UserController::class, 'getRole'])->middleware(['auth'])->name('getRoleUser');
+Route::post('/postRonde', [RondesController::class, 'postRonde'])->middleware(['auth'])->name('postRonde');
+
 
 require __DIR__.'/auth.php';

@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Roles;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'pseudo',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -41,4 +43,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+      /**
+     * Get the role of this user.
+     */
+    public function role()
+    {
+        return $this->belongsTo(Roles::class);
+    }
+
+    public function hasAdminAccess()
+    {
+        return $this->can('admin_acess');
+    }
+
+    public function isAdmin()
+    {
+        return $this->role->is_admin;
+    }
 }

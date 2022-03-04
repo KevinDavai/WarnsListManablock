@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\Models\Warns;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -11,20 +10,20 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class WarnAdded implements ShouldBroadcast
+class RondeAdded implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $warns;
+    public $rondes;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($warn)
+    public function __construct($ronde)
     {
-        $this->warns = $warn;
+        $this->rondes = $ronde;
     }
 
     /**
@@ -34,9 +33,9 @@ class WarnAdded implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('warns');
+        return new Channel('rondes');
     }
-    
+
     /**
      * Get the data to broadcast.
      *
@@ -44,11 +43,11 @@ class WarnAdded implements ShouldBroadcast
      */
     public function broadcastWith()
     {
-        return ['warn' => $this->warns];
+        return ['ronde' => $this->rondes];
     }
 
     public function broadcastAs()
     {
-        return 'addWarn';
+        return 'addRonde';
     }
 }

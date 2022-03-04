@@ -9,9 +9,9 @@
             <!-- Authentication Links -->
             <div class="profile-avatar">
                 <div class="profile-description">
-                    <p class="profile-title text-nav-head">n0urs86</p>
+                    <p class="profile-title text-nav-head">{{ $page.props.auth.user.pseudo }}</p>
                     <p class="profile-description-text text-nav-head">
-                      Modérateur
+                      {{ role_name }}
                     </p>
                 </div>
                 <div class="profile-head">
@@ -71,12 +71,22 @@ export default {
   data() {
     return {
       showingNavigationDropdown: false,
+      role_name: "",
     }
+  },
+
+  created() {
+    this.getRole();
   },
 
   methods: {
     logout() {
       Inertia.post(route("logout"));
+    },
+    getRole() {
+      axios.get(route('getRoleUser')).then((res) => {
+        this.role_name = res.data;
+      });
     }
   },
   mounted() {

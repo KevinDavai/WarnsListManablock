@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddWarnsTable extends Migration
+class AddRondeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class AddWarnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('warns', function (Blueprint $table) {
+        Schema::create('rondes', function (Blueprint $table) {
             $table->id();
             $table->string('pseudo');
-            $table->string('warn_name');
             $table->string('description');
-            $table->string('modérateur');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class AddWarnsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warns');
+        Schema::dropIfExists('rondes');
     }
 }

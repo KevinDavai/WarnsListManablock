@@ -1,48 +1,35 @@
 <template>
   <Head title="Register" />
 
-  <div class="card-body">
+    <div class="card-body text-start">
+      <breeze-validation-errors class="mb-3" />
 
-    <breeze-validation-errors class="mb-3" />
-
-    <form @submit.prevent="submit">
-      <div class="mb-3">
-        <breeze-label for="pseudo" value="Pseudo" />
-        <breeze-input id="pseudo" type="text" v-model="form.pseudo" required autofocus autocomplete="pseudo" />
+      <div v-if="status" class="alert alert-success mb-3 rounded-0" role="alert">
+        {{ status }}
       </div>
 
-      <div class="mb-3">
-        <breeze-label for="email" value="Email" />
-        <breeze-input id="email" type="email" v-model="form.email" required />
-      </div>
-
-      <div class="mb-3">
-        <breeze-label for="password" value="Password" />
-        <breeze-input id="password" type="password" v-model="form.password" required autocomplete="new-password" />
-      </div>
-
-      <div class="mb-3">
-        <breeze-label for="password_confirmation" value="Confirm Password" />
-        <breeze-input id="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password" />
-      </div>
-
-      <div class="mb-0">
-        <div class="d-flex justify-content-end align-items-baseline">
-          <Link :href="route('login')" class="text-muted me-3 text-decoration-none">
-            Already registered?
-          </Link>
-
-          <breeze-button class="ms-4" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
-            <div v-show="form.processing" class="spinner-border spinner-border-sm" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-            
-            Register
-          </breeze-button>
+      <form @submit.prevent="submit" id="registerForm">
+        <div class="form-floating mb-3">
+          <input id="floatingInput" class="form-control form-control-lg" type="text" placeholder="name@example.com" v-model="form.pseudo" required autofocus />
+          <label for="floatingInput">Pseudo minecraft</label>
         </div>
-      </div>
-    </form>
-  </div>
+
+        <div class="form-floating mb-3">
+          <input class="form-control form-control-lg" id="floatingInput" type="email" placeholder="name@example.com" v-model="form.email" required />
+          <label for="floatingInput">Email</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input class="form-control form-control-lg" id="floatingInput" type="password" placeholder="name@example.com" v-model="form.password" required />
+          <label for="floatingInput">Mot de passe</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com" v-model="form.password_confirmation" required />
+          <label for="floatingInput">Confirmation du mot de passe</label>
+        </div>
+      </form>
+    </div>
 </template>
 
 <script>

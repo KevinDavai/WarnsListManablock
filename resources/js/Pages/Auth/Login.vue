@@ -27,35 +27,34 @@
         <p class="heading">Connexion</p>
       </div>
       <div class="modal-body">
-      <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
-          <div class="card-body text-start">
+        <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
+        <div class="card-body text-start">
 
-    <breeze-validation-errors class="mb-3" />
+          <breeze-validation-errors class="mb-3" />
 
-    <div v-if="status" class="alert alert-success mb-3 rounded-0" role="alert">
-      {{ status }}
-    </div>
+          <div v-if="status" class="alert alert-success mb-3 rounded-0" role="alert">
+            {{ status }}
+          </div>
 
-    <form @submit.prevent="submit" id="loginForm">
-      <div class="form-floating mb-3">
-          <input type="email" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.email" required autofocus/>
-          <label for="floatingInput">Email</label>
+          <form @submit.prevent="submit" id="loginForm">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.email" required autofocus/>
+                <label for="floatingInput">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.password" required autocomplete="current-password"/>
+                <label for="floatingInput">Mot de passe</label>
+            </div>
+          </form>
+        </div>
       </div>
 
-      <div class="form-floating mb-3">
-          <input type="password" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.password" required autocomplete="current-password"/>
-          <label for="floatingInput">Mot de passe</label>
-      </div>
-    </form>
-  </div>
-      </div>
-
-          <div class="modal-footer flex-center justify-content-center">
+      <div class="modal-footer flex-center justify-content-center">
         <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
         <input type="submit" form="loginForm" class="btn-valid-modal waves-effect waves-light" value="Se connecter" data-bs-dismiss="modal"> 
       </div>
     </div>
-  
   </div>
 </div>
 
@@ -67,10 +66,14 @@
         <p class="heading">S'enregistrer</p>
       </div>
       <div class="modal-body">
-      <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
-      <registerForm></registerForm>
+        <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
+        <registerForm></registerForm>
       </div>
-    </div>  
+      <div class="modal-footer flex-center justify-content-center">
+          <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
+          <input type="submit" form="registerForm" class="btn-valid-modal waves-effect waves-light" value="S'enregistrer" data-bs-dismiss="modal"> 
+      </div>  
+    </div>
   </div>
 </div>
 </template>
