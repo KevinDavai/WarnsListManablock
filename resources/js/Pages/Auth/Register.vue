@@ -9,22 +9,22 @@
       </div>
 
       <form @submit.prevent="submit" id="registerForm">
-        <div class="form-floating mb-3">
+        <div class="form-label-group mb-3">
           <input id="floatingInput" class="form-control form-control-lg" type="text" placeholder="name@example.com" v-model="form.pseudo" required autofocus />
           <label for="floatingInput">Pseudo minecraft</label>
         </div>
 
-        <div class="form-floating mb-3">
-          <input class="form-control form-control-lg" id="floatingInput" type="email" placeholder="name@example.com" v-model="form.email" required />
+        <div class="form-label-group mb-3">
+          <input class="form-control form-control-lg" id="floatingInput" type="email" placeholder="name@example.com" v-model="form.email_register" required />
           <label for="floatingInput">Email</label>
         </div>
 
-        <div class="form-floating mb-3">
+        <div class="form-label-group mb-3">
           <input class="form-control form-control-lg" id="floatingInput" type="password" placeholder="name@example.com" v-model="form.password" required />
           <label for="floatingInput">Mot de passe</label>
         </div>
 
-        <div class="form-floating mb-3">
+        <div class="form-label-group mb-3">
           <input type="password" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com" v-model="form.password_confirmation" required />
           <label for="floatingInput">Confirmation du mot de passe</label>
         </div>
@@ -58,7 +58,7 @@ export default {
     return {
       form: this.$inertia.form({
         pseudo: '',
-        email: '',
+        email_register: '',
         password: '',
         password_confirmation: '',
         terms: false,

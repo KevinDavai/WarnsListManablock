@@ -4,14 +4,14 @@
 
       <div class="row justify-content-around">
       <div class="col-6">
-        <button style="--content: 'Connexion';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#connexionModal">
+        <button style="--content: 'Connexion';" class="btn-edit-1" data-toggle="modal" data-target="#connexionModal">
           <div class="left"></div>
             Connexion
           <div class="right"></div>
         </button>
       </div>
       <div class="col-6">
-        <button style="--content: 'S\'enregistrer';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#registerModal">
+        <button style="--content: 'S\'enregistrer';" class="btn-edit-1" data-toggle="modal" data-target="#registerModal">
           <div class="left"></div>
             S'enregistrer
           <div class="right"></div>
@@ -37,21 +37,21 @@
           </div>
 
           <form @submit.prevent="submit" id="loginForm">
-            <div class="form-floating mb-3">
+            <div class="form-label-group mb-3">
                 <input type="email" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.email" required autofocus/>
                 <label for="floatingInput">Email</label>
             </div>
 
-            <div class="form-floating mb-3">
-                <input type="password" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.password" required autocomplete="current-password"/>
-                <label for="floatingInput">Mot de passe</label>
+            <div class="form-label-group mb-3">
+                <input type="password" class="form-control form-control-lg"  id="inputPassword" placeholder="Mot de passe" v-model="form.password" required autocomplete="current-password"/>
+                <label for="inputPassword">Mot de passe</label>
             </div>
           </form>
         </div>
       </div>
 
       <div class="modal-footer flex-center justify-content-center">
-        <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn-dismis-modal" data-dismiss="modal">Annuler</button>
         <input type="submit" form="loginForm" class="btn-valid-modal waves-effect waves-light" value="Se connecter" data-bs-dismiss="modal"> 
       </div>
     </div>
@@ -70,7 +70,7 @@
         <registerForm></registerForm>
       </div>
       <div class="modal-footer flex-center justify-content-center">
-          <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn-dismis-modal" data-dismiss="modal">Annuler</button>
           <input type="submit" form="registerForm" class="btn-valid-modal waves-effect waves-light" value="S'enregistrer" data-bs-dismiss="modal"> 
       </div>  
     </div>

@@ -26,7 +26,7 @@ class Rondes extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime:Y-m-d',
+        'created_at' => 'datetime:H:i d/m/Y',
     ];
 
 }

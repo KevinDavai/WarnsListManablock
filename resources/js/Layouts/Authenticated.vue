@@ -1,7 +1,7 @@
 <template>
   <div class="bg-19191d">
-    <nav class="navbar bg-navbar-deg navbar-expand-md navbar-light bg-purple-me sticky-top">
-      <div class="container-xxl">
+    <nav class="navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top">
+      <div class="container">
 
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
           <!-- Right Side Of Navbar -->
@@ -23,20 +23,17 @@
 
         <!-- Logo -->
         <a class="navbar-brand navbar-collapse justify-content-center" href="/">
-          <Link :href="route('dashboard')">
+          <Link :href="route('dashboard')" :class="`d-none d-sm-block`">
                 <img src="https://www.ycraft.fr/storage/img/logo.png" style="width: 80px">
           </Link>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse justify-content-center width-btn-back" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-center width-²-back" id="navbarSupportedContent">
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav align-items-baseline">
             <!-- Authentication Links -->
             
-            <a @click="logout" as="button" class="back-btn"><i class="fas fa-sign-out-alt"></i> <span> Déconnexion</span></a>
+            <a @click="logout" as="button" class="back-btn"><i class="fas fa-sign-out-alt d-none d-sm-inline-block"></i> <span> Déconnexion</span></a>
 
           </ul>
         </div>
@@ -57,6 +54,8 @@ import BreezeDropdownLink from '@/Components/DropdownLink.vue'
 import BreezeNavLink from '@/Components/NavLink.vue'
 import { Link } from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia'
+import $ from 'jquery'
+
 
 
 export default {
@@ -92,6 +91,10 @@ export default {
   mounted() {
     var body = document.body;
     body.classList.add("bg-19191d");
+    var elements = body.getElementsByClassName("modal-backdrop"); // or:
+    if(elements.length >= 1)
+      elements[0].remove();
+
   }
 }
 </script>
