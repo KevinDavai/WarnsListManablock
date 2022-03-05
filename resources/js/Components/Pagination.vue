@@ -1,6 +1,6 @@
 <template>
     <div class='VuePagination' :class='props.theme.wrapper'>
-        <nav :class='props.theme.nav' class="px-4 py-4">
+        <nav :class='props.theme.nav' class="px-4 pb-4">
 
             <ul v-show="props.showPagination" :class="props.theme.list" style="display: flex; margin: 0px; justify-content: space-between;">
 

@@ -21,7 +21,7 @@ class RondesController extends Controller
 
     public function getListRonde()
     {
-        $rondes = Rondes::orderBy('created_at', 'desc')->paginate(7);
+        $rondes = Rondes::orderBy('created_at', 'desc')->get();
         return response()->json($rondes);
     }
 

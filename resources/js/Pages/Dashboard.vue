@@ -11,9 +11,22 @@
           <p class="text-white text-center">Ton compte est en attente de validation</p>
         </div>
         <div v-else>
-        
-          <pagination v-model="page" :records="500" :per-page="7" @paginate="list(this.page)" :options="options"></pagination>
-          <div class="table-responsive">
+
+            <!-- Search form -->
+            <div class="row justify-content-around px-4">
+              <div class="col-3 md-form active-pink active-pink-2 mb-3 mt-0">
+                <div class="form-label-group mb-3">
+                  <Datepicker :position="null" :range="true" :lang="fr" :circle="true" v-model="this.date" :date-format="dateFormat" showClearButton='true' @reset='test'/>
+                </div>
+              </div>
+              <div class="col-3 md-form active-pink active-pink-2 mb-3 mt-0">
+                <div class="form-label-group mb-3">
+                  <input class="form-control form-control-lg" type="text" placeholder="Search" id="floatingInput" aria-label="Search" v-model="this.keyword">
+                  <label for="floatingInput">Search</label>
+                </div>
+              </div>
+            </div>
+
             <div class="table-responsive-xl">
               <table class="table table-dark bg-19191d table-borderless card-1 p-4 table-striped table-hover">
                 <thead>
@@ -24,7 +37,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(ronde, index) in rondeListe.data">
+              
+                  <tr v-for="(ronde, index) in computedRondes.slice(index,index+7)">
                                         <td>
                                             <div>
                                                 {{ ronde.pseudo }}
@@ -41,9 +55,20 @@
                 </tbody>
               </table>
             </div>
-          </div>
+          <div>
+            <nav class="px-4 pb-4">
+                <ul class="p-0" style="display: flex; margin: 0px; justify-content: space-between;">
+                    <li>
+                        <button @click="setPreviousPage" v-if="this.index != 0" type="button" class="left-page-btn"><i class="fas fa-angle-left"></i></button>
+                    </li>
+                    <li>
+                        <button @click="setNextPage" v-if="this.index < this.computedRondes.length - 5" type="button" class="right-page-btn"><i class="fas fa-angle-right"></i></button>
+                    </li>
+                </ul>
+            </nav>
         </div>
       </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="addrondeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -73,7 +98,7 @@
           </div>
           <div class="modal-footer flex-center justify-content-center">
             <button type="button" class="btn-dismis-modal" data-dismiss="modal">Annuler</button>
-            <input type="submit" form="rondeForm" class="btn-valid-modal waves-effect waves-light" value="Ajouter" data-bs-dismiss="modal"> 
+            <input type="submit" form="rondeForm" class="btn-valid-modal waves-effect waves-light" value="Ajouter" data-bs-dismiss="modal" :disabled="!btn_add"> 
           </div>
         </div>
       </div>
@@ -87,6 +112,8 @@ import { Head } from '@inertiajs/inertia-vue3'
 import Preloader from '@/Components/Preloader.vue'
 import Pagination from 'v-pagination-3'
 import MyPagination from '@/Components/Pagination.vue'
+import VueDatepickerUi from 'vue-datepicker-ui'
+import 'vue-datepicker-ui/lib/vuedatepickerui.css';
 import $ from 'jquery'
 
 
@@ -98,12 +125,18 @@ export default {
     Preloader, 
     Pagination,
     MyPagination,
+    Datepicker: VueDatepickerUi,
   },
   props: {
     status: String
   },
   data() {
     return {
+        date: [],
+        startDate: '',
+        endDate: '',
+        btn_add: true,
+        keyword: '',
         rondeListe: [],
         ronde: {
             description: null,
@@ -111,24 +144,34 @@ export default {
         },
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         page: 1,
-        options:{
-            format: true,
-            chunk: 1,
-            chunksNavigation:'scroll',
-            edgeNavigation: true,
-            theme:'bootstrap3',
-            template:MyPagination,
-            texts:{
-                count:'Showing {from} to {to} of {count} records|{count} records|One record',
-                first:'First',
-                last:'Last',
-                nextPage:'>',
-                nextChunk:'>>',
-                prevPage:'<',
-                prevChunk:'<<'
-            }
-        }
-    };
+        index: 0,
+        dateFormat: {
+          'day': '2-digit',
+          'month': '2-digit',
+          'year': 'numeric'
+        },
+    }
+  },
+  watch: {
+    date: function (val) {
+      if(val[1] != undefined) {
+        this.startDate = this.date[0];
+        this.endDate = this.date[1];
+      }
+    }
+  },
+  computed:  {
+    computedRondes: function() {
+      this.index = 0;
+      
+      return this.rondeListe.filter((item) => {
+        let dateSliced = item.created_at.slice(6);
+        var dateMomentObject = moment(dateSliced, "DD/MM/YYYY"); // 1st argument - string, 2nd argument - format
+        var dateObject = dateMomentObject.toDate(); // convert moment.js object to Date object
+        return (this.startDate === '' || dateObject >= this.startDate && dateObject <= this.endDate)
+                && (this.keyword.length === 0 || item.pseudo.includes(this.keyword))
+      })
+    },
   },
   created() {
       this.fetchRondeList();
@@ -139,11 +182,21 @@ export default {
               this.rondeListe = res.data;
           });
       },
-
+      test() {
+        this.date = [];
+        this.startDate = '';
+        this.endDate = '';
+      },
 
       createRonde() {
+          this.btn_add = false;
           axios.post(route('postRonde'), this.ronde).then(() => {
             $('#addrondeModal').modal('hide');
+          }).then(() => {
+            setTimeout(() => {  
+                console.log("World!");
+                this.btn_add = true; 
+            }, 2000);
           })
       },
 
@@ -153,6 +206,16 @@ export default {
             }).catch(({ response })=>{
                 console.error(response)
             })
+      },
+      setPreviousPage() {
+          if(this.index != 0) {
+            this.index = this.index - 7;
+          }
+        },
+      setNextPage() {
+        if(this.index < this.computedRondes.length - 7) {
+          this.index = this.index + 7;
+        }
       }
   },
   mounted() {

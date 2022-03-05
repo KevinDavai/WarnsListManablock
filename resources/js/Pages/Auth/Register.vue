@@ -15,7 +15,7 @@
         </div>
 
         <div class="form-label-group mb-3">
-          <input class="form-control form-control-lg" id="floatingInput" type="email" placeholder="name@example.com" v-model="form.email_register" required />
+          <input class="form-control form-control-lg" id="floatingInput" type="email" placeholder="name@example.com" v-model="form.email" required />
           <label for="floatingInput">Email</label>
         </div>
 
@@ -58,7 +58,7 @@ export default {
     return {
       form: this.$inertia.form({
         pseudo: '',
-        email_register: '',
+        email: '',
         password: '',
         password_confirmation: '',
         terms: false,
