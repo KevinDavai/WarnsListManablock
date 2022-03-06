@@ -19526,11 +19526,43 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(route('getRoleUser')).then(function (res) {
         _this.role_name = res.data;
       });
+    },
+    sideBar: function sideBar() {
+      var toggle = document.getElementById('header-toggle'),
+          nav = document.getElementById('nav-bar'); //bodypd = document.getElementById('body-pd'),
+      // Validate that all variables exist
+
+      console.log(toggle);
+      console.log(nav); //console.log(bodypd);
+
+      if (toggle && nav) {
+        // show navbar
+        nav.classList.toggle('show-pd'); // change icon
+
+        toggle.classList.toggle('bx-x'); // add padding to body
+        //bodypd.classList.toggle('body-pd')
+      }
     }
   },
   mounted: function mounted() {
     var body = document.body;
     body.classList.add("bg-19191d");
+    var linkColor = document.querySelectorAll('.nav_link');
+    console.log(linkColor);
+
+    function colorLink() {
+      if (linkColor) {
+        linkColor.forEach(function (l) {
+          return l.classList.remove('active');
+        });
+        this.classList.add('active');
+      }
+    }
+
+    linkColor.forEach(function (l) {
+      return l.addEventListener('click', colorLink);
+    }); //body.id = 'body-pd';
+
     var elements = body.getElementsByClassName("modal-backdrop"); // or:
 
     if (elements.length >= 1) elements[0].remove();
@@ -20517,48 +20549,47 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "bg-19191d"
 };
-var _hoisted_2 = {
-  "class": "navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top"
-};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"l-navbar\" id=\"nav-bar\"><nav class=\"nav\"><div><div class=\"nav_list\"><a href=\"#\" class=\"nav_link active\"><i class=\"fas fa-address-book\"></i><span class=\"nav_name\">Ronde</span></a><a href=\"#\" class=\"nav_link\"><i class=\"fas fa-user-check\"></i><span class=\"nav_name\">Double compte</span></a><a href=\"#\" class=\"nav_link\"><i class=\"fas fa-ban\"></i><span class=\"nav_name\">Wiki</span></a></div></div></nav></div>", 1);
+
 var _hoisted_3 = {
-  "class": "container"
+  "class": "navbar p-0 transition-navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top"
 };
 var _hoisted_4 = {
+  "class": "header_toggle"
+};
+var _hoisted_5 = {
+  "class": "container container-pd"
+};
+var _hoisted_6 = {
   "class": "collapse navbar-collapse justify-content-center",
   id: "navbarSupportedContent"
 };
-var _hoisted_5 = {
+var _hoisted_7 = {
   "class": "navbar-nav align-items-baseline width-btn-back"
 };
-var _hoisted_6 = {
+var _hoisted_8 = {
   "class": "profile-avatar"
 };
-var _hoisted_7 = {
+var _hoisted_9 = {
   "class": "profile-description"
 };
-var _hoisted_8 = {
+var _hoisted_10 = {
   "class": "profile-title text-nav-head"
 };
-var _hoisted_9 = {
+var _hoisted_11 = {
   "class": "profile-description-text text-nav-head"
 };
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_12 = {
   "class": "profile-head"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "avatar-head",
-  src: "https://cravatar.eu/helmavatar/n0urs86/32.png",
-  alt: "n0urs86's Head"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_11 = {
+};
+var _hoisted_13 = ["src"];
+var _hoisted_14 = {
   "class": "navbar-brand navbar-collapse justify-content-center",
   href: "/"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "https://www.ycraft.fr/storage/img/logo.png",
   style: {
     "width": "80px"
@@ -20567,56 +20598,68 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_13 = {
+var _hoisted_16 = {
   "class": "collapse navbar-collapse justify-content-center width-²-back",
   id: "navbarSupportedContent"
 };
-var _hoisted_14 = {
+var _hoisted_17 = {
   "class": "navbar-nav align-items-baseline"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-sign-out-alt d-none d-sm-inline-block"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Déconnexion", -1
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Déconnexion", -1
 /* HOISTED */
 );
 
-var _hoisted_18 = [_hoisted_15, _hoisted_16, _hoisted_17];
-var _hoisted_19 = {
+var _hoisted_21 = [_hoisted_18, _hoisted_19, _hoisted_20];
+var _hoisted_22 = {
   "class": "container my-5 d-flex align-items-center flex-column"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Right Side Of Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Authentication Links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.pseudo), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-bars",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.sideBar && $options.sideBar.apply($options, arguments);
+    }),
+    id: "header-toggle",
+    "aria-hidden": "true"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Right Side Of Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Authentication Links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.pseudo), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.role_name), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.role_name), 1
   /* TEXT */
-  )]), _hoisted_10])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Logo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "avatar-head",
+    src: 'https://cravatar.eu/helmavatar/' + _ctx.$page.props.auth.user.pseudo + '/32.png'
+  }, null, 8
+  /* PROPS */
+  , _hoisted_13)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Logo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('dashboard'),
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("d-none d-sm-block")
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_12];
+      return [_hoisted_15];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Right Side Of Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Authentication Links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    onClick: _cache[0] || (_cache[0] = function () {
+  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Right Side Of Navbar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Authentication Links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onClick: _cache[1] || (_cache[1] = function () {
       return $options.logout && $options.logout.apply($options, arguments);
     }),
     as: "button",
     "class": "back-btn"
-  }, _hoisted_18)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]);
+  }, _hoisted_21)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]);
 }
 
 /***/ }),

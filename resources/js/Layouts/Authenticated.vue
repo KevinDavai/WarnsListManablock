@@ -1,9 +1,32 @@
 <template>
   <div class="bg-19191d">
-    <nav class="navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top">
-      <div class="container">
+   <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> 
+              <div class="nav_list"> 
+                  <a href="#" class="nav_link active"> 
+                    <i class="fas fa-address-book"></i>                      
+                    <span class="nav_name">Ronde</span> 
+                  </a> 
+                  <a href="#" class="nav_link"> 
+                    <i class="fas fa-user-check"></i>                      
+                    <span class="nav_name">Double compte</span> 
+                  </a> 
+                  <a href="#" class="nav_link"> 
+                    <i class="fas fa-ban"></i>                      
+                    <span class="nav_name">Wiki</span> 
+                  </a> 
+              </div>
+            </div> 
+        </nav>
+    </div>
+    <nav class="navbar p-0 transition-navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top">
+        <div class="header_toggle"><i class="fas fa-bars" @click="sideBar" id="header-toggle" aria-hidden="true"></i></div>
+
+      <div class="container container-pd">
 
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+       
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav align-items-baseline width-btn-back">
             <!-- Authentication Links -->
@@ -15,7 +38,7 @@
                     </p>
                 </div>
                 <div class="profile-head">
-                  <img class="avatar-head" src="https://cravatar.eu/helmavatar/n0urs86/32.png" alt="n0urs86's Head">
+                  <img class="avatar-head" :src="'https://cravatar.eu/helmavatar/' + $page.props.auth.user.pseudo + '/32.png'">
                 </div>
             </div>
           </ul>
@@ -86,11 +109,47 @@ export default {
       axios.get(route('getRoleUser')).then((res) => {
         this.role_name = res.data;
       });
-    }
+    },
+    sideBar() {
+
+          const toggle = document.getElementById('header-toggle'),
+          nav = document.getElementById('nav-bar')
+          //bodypd = document.getElementById('body-pd'),
+        
+          // Validate that all variables exist
+          console.log(toggle);
+          console.log(nav);
+          //console.log(bodypd);
+          if(toggle && nav){
+                                
+              // show navbar
+              nav.classList.toggle('show-pd')
+              // change icon
+              toggle.classList.toggle('bx-x')
+              // add padding to body
+              //bodypd.classList.toggle('body-pd')
+
+          }
+      
+        
+        
+  
+    },
   },
-  mounted() {
+  mounted() { 
     var body = document.body;
     body.classList.add("bg-19191d");
+    const linkColor = document.querySelectorAll('.nav_link')
+                  console.log(linkColor);
+
+        function colorLink(){
+          if(linkColor){
+            linkColor.forEach(l=> l.classList.remove('active'))
+            this.classList.add('active')
+          }
+        }
+        linkColor.forEach(l=> l.addEventListener('click', colorLink))
+    //body.id = 'body-pd';
     var elements = body.getElementsByClassName("modal-backdrop"); // or:
     if(elements.length >= 1)
       elements[0].remove();

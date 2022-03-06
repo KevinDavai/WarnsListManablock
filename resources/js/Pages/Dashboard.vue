@@ -216,7 +216,7 @@ export default {
         if(this.index < this.computedRondes.length - 7) {
           this.index = this.index + 7;
         }
-      }
+      },
   },
   mounted() {
     Pusher.logToConsole = true;
