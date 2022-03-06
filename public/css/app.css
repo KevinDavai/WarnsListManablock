@@ -10535,7 +10535,6 @@ a.waves-light {
 }
 
 table {
-  border-collapse: separate;
   border-spacing: 0px 4px;
 }
 
@@ -10943,7 +10942,6 @@ table {
 .l-navbar {
   position: fixed;
   top: 0;
-  left: -30%;
   width: var(--nav-width);
   height: 100vh;
   background: #363535;
@@ -11055,7 +11053,6 @@ table {
   }
 
   .l-navbar {
-    left: 0;
     padding: 7rem 1rem 0 0;
   }
 
@@ -11065,6 +11062,16 @@ table {
 
   .body-pd {
     margin-left: calc(var(--nav-width) + 156px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .show-pd {
+    width: calc(var(--nav-width) + 156px);
+  }
+
+  .l-navbar {
+    left: -30%;
+    padding: 7rem 1rem 0 0;
   }
 }
 .container-pd {
@@ -11084,4 +11091,22 @@ table {
 
 a:hover {
   text-decoration: none;
+}
+
+.vertical-align-td {
+  vertical-align: middle !important;
+}
+
+@media (max-width: 1199.98px) {
+  .v-calendar .input-field.long {
+    min-width: 0px !important;
+  }
+
+  .v-calendar {
+    max-width: 100%;
+    min-width: 0px !important;
+  }
+}
+.left-0per {
+  left: 0 !important;
 }

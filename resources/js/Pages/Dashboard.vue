@@ -14,15 +14,15 @@
 
             <!-- Search form -->
             <div class="row justify-content-around px-4">
-              <div class="col-3 md-form active-pink active-pink-2 mb-3 mt-0">
+              <div class="d-flex pt-4 pt-md-0 d-md-block justify-content-center col-sm-8 col-md-4 col-lg-3 md-form active-pink active-pink-2 mb-3 mt-0">
                 <div class="form-label-group mb-3">
                   <Datepicker id="floatingLabelDate" :position="null" :range="true" lang="fr" :circle="true" v-model="this.date" :date-format="dateFormat" showClearButton='true' @reset='test'/>
                 </div>
               </div>
-              <div class="col-3 md-form active-pink active-pink-2 mb-3 mt-0">
+              <div class="d-sm-flex pt-4 pt-sm-0 d-md-block justify-content-center col-sm-8 col-md-4 col-lg-3 md-form active-pink active-pink-2 mb-3 mt-0">
                 <div class="form-label-group mb-3">
                   <input class="form-control form-control-lg" type="text" placeholder="Search" id="floatingInput" aria-label="Search" v-model="this.keyword">
-                  <label for="floatingInput">Search</label>
+                  <label class="floatingLabelSearch" for="floatingInput">Search</label>
                 </div>
               </div>
             </div>
@@ -39,15 +39,18 @@
                 <tbody>
               
                   <tr v-for="(ronde, index) in computedRondes.slice(index,index+7)">
-                                        <td>
-                                            <div>
+                                        <td class="vertical-align-td">
+                                            <div class="d-flex align-items-center">
+                                              <div class="profile-head mr-3">
+                                                <img class="avatar-head" :src="'https://cravatar.eu/helmavatar/' + ronde.pseudo + '/32.png'">
+                                              </div>
                                                 {{ ronde.pseudo }}
                                             </div>
                                         </td>
-                                        <td>
+                                        <td class="vertical-align-td">
                                             <div :class="{ 'text-nowrap' : ronde.description.length >= 60}" >{{ ronde.description }}</div>
                                         </td>
-                                        <td>
+                                        <td class="vertical-align-td">
                                             <div>{{ ronde.created_at }}</div>
                                         </td>
                                     </tr>
@@ -56,7 +59,7 @@
               </table>
             </div>
           <div>
-            <nav class="px-4 pb-4">
+            <nav class="px-0 px-sm-4 pb-0 pb-sm-4">
                 <ul class="p-0" style="display: flex; margin: 0px; justify-content: space-between;">
                     <li>
                         <button @click="setPreviousPage" v-if="this.index != 0" type="button" class="left-page-btn"><i class="fas fa-angle-left"></i></button>

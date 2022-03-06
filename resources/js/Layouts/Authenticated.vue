@@ -21,7 +21,7 @@
         </nav>
     </div>
     <nav class="navbar p-0 transition-navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top">
-        <div class="header_toggle"><i class="fas fa-bars" @click="sideBar" id="header-toggle" aria-hidden="true"></i></div>
+        <div class="header_toggle ml-4 ml-md-0"><i class="fas fa-bars" @click="sideBar" id="header-toggle" aria-hidden="true"></i></div>
 
       <div class="container container-pd">
 
@@ -54,7 +54,7 @@
 
         <div class="collapse navbar-collapse justify-content-center width-²-back" id="navbarSupportedContent">
           <!-- Right Side Of Navbar -->
-          <ul class="navbar-nav align-items-baseline">
+          <ul class="d-none d-sm-block navbar-nav align-items-baseline">
             <!-- Authentication Links -->
             
             <a @click="logout" as="button" class="back-btn"><i class="fas fa-sign-out-alt d-none d-sm-inline-block"></i> <span> Déconnexion</span></a>
@@ -116,6 +116,16 @@ export default {
           const toggle = document.getElementById('header-toggle'),
           nav = document.getElementById('nav-bar')
           //bodypd = document.getElementById('body-pd'),
+
+          var elem, style;
+          elem = document.querySelector('.l-navbar');
+          style = getComputedStyle(elem);
+          console.log(style.left != "0px");
+          if(style.left != "0px") {
+            elem.classList.add('left-0per');
+          } else {
+            elem.classList.remove('left-0per');
+          };
         
           // Validate that all variables exist
           console.log(toggle);
