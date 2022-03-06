@@ -16,7 +16,7 @@
             <div class="row justify-content-around px-4">
               <div class="col-3 md-form active-pink active-pink-2 mb-3 mt-0">
                 <div class="form-label-group mb-3">
-                  <Datepicker :position="null" :range="true" :lang="fr" :circle="true" v-model="this.date" :date-format="dateFormat" showClearButton='true' @reset='test'/>
+                  <Datepicker id="floatingLabelDate" :position="null" :range="true" lang="fr" :circle="true" v-model="this.date" :date-format="dateFormat" showClearButton='true' @reset='test'/>
                 </div>
               </div>
               <div class="col-3 md-form active-pink active-pink-2 mb-3 mt-0">
@@ -219,6 +219,11 @@ export default {
       },
   },
   mounted() {
+    document.querySelector('.input-field').insertAdjacentHTML(
+    'beforeend',
+    `<label class="floatingLabelDate" for="floatingLabelDate">Debut - Fin</label>`      
+    )
+
     Pusher.logToConsole = true;
     var vm = this;
     var pusher = new Pusher('f6e2c5eefed30ef289a8', {

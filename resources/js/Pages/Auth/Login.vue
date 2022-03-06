@@ -5,16 +5,16 @@
       <div class="row justify-content-around">
       <div class="col-6">
         <button style="--content: 'Connexion';" class="btn-edit-1" data-toggle="modal" data-target="#connexionModal">
-          <div class="left"></div>
+          <div class="left-app"></div>
             Connexion
-          <div class="right"></div>
+          <div class="right-app"></div>
         </button>
       </div>
       <div class="col-6">
         <button style="--content: 'S\'enregistrer';" class="btn-edit-1" data-toggle="modal" data-target="#registerModal">
-          <div class="left"></div>
+          <div class="left-app"></div>
             S'enregistrer
-          <div class="right"></div>
+          <div class="right-app"></div>
         </button>
       </div>
     </div>

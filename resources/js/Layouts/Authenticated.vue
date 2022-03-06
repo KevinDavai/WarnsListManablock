@@ -4,7 +4,7 @@
         <nav class="nav">
             <div> 
               <div class="nav_list"> 
-                  <a href="#" class="nav_link active"> 
+                  <a href="#" class="nav_link active-app"> 
                     <i class="fas fa-address-book"></i>                      
                     <span class="nav_name">Ronde</span> 
                   </a> 
@@ -17,13 +17,14 @@
                     <span class="nav_name">Wiki</span> 
                   </a> 
               </div>
-            </div> 
+            </div> <a v-if="$page.props.auth.user.role_id == 3" :href="route('admin.dashboard.index')" class="nav_link"> <i class="fas fa-user-lock"></i> <span class="nav_name">Panel Administrateur</span> </a>
         </nav>
     </div>
     <nav class="navbar p-0 transition-navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top">
         <div class="header_toggle"><i class="fas fa-bars" @click="sideBar" id="header-toggle" aria-hidden="true"></i></div>
 
       <div class="container container-pd">
+
 
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
        
@@ -125,7 +126,7 @@ export default {
               // show navbar
               nav.classList.toggle('show-pd')
               // change icon
-              toggle.classList.toggle('bx-x')
+              toggle.classList.toggle('fa-times')
               // add padding to body
               //bodypd.classList.toggle('body-pd')
 
@@ -144,8 +145,8 @@ export default {
 
         function colorLink(){
           if(linkColor){
-            linkColor.forEach(l=> l.classList.remove('active'))
-            this.classList.add('active')
+            linkColor.forEach(l=> l.classList.remove('active-app'))
+            this.classList.add('active-app')
           }
         }
         linkColor.forEach(l=> l.addEventListener('click', colorLink))

@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use App\Events\RondeAdded;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarnsController;
 use App\Http\Controllers\RondesController;
@@ -25,6 +26,11 @@ Route::get('/', [RondesController::class, 'index'])->middleware(['auth', 'verifi
 Route::get('/rondelist', [RondesController::class, 'getListRonde'])->middleware(['auth'])->name('getListRonde');
 Route::get('/getRole', [UserController::class, 'getRole'])->middleware(['auth'])->name('getRoleUser');
 Route::post('/postRonde', [RondesController::class, 'postRonde'])->middleware(['auth'])->name('postRonde');
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
 
 
 require __DIR__.'/auth.php';
