@@ -117,7 +117,6 @@ import Pagination from 'v-pagination-3'
 import MyPagination from '@/Components/Pagination.vue'
 import VueDatepickerUi from 'vue-datepicker-ui'
 import 'vue-datepicker-ui/lib/vuedatepickerui.css';
-import $ from 'jquery'
 
 
 export default {
@@ -194,6 +193,7 @@ export default {
       createRonde() {
           this.btn_add = false;
           axios.post(route('postRonde'), this.ronde).then(() => {
+            console.log($);
             $('#addrondeModal').modal('hide');
           }).then(() => {
             setTimeout(() => {  

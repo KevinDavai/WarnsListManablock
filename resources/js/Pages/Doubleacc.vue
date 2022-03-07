@@ -15,7 +15,6 @@
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
 import Preloader from '@/Components/Preloader.vue'
-import $ from 'jquery'
 
 export default {
   components: { BreezeAuthenticatedLayout, Preloader }
