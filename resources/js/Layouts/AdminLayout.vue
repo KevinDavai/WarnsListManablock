@@ -5,7 +5,7 @@
             <div class="leftside-menu">
     
                 <!-- LOGO -->
-                <a href="index.html" class="logo text-center logo-light">
+                <a href="/admin/dashboard" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img src="https://www.ycraft.fr/storage/img/logo.png" alt="" height="16">
                     </span>
@@ -15,7 +15,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="index.html" class="logo text-center logo-dark">
+                <a href="/admin/dashboard" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img src="https://www.ycraft.fr/storage/img/logo.png" alt="" height="16">
                     </span>
@@ -32,25 +32,25 @@
                         <li class="side-nav-title side-nav-item">Navigation</li>
 
                         <li class="side-nav-item">
-                            <a href="apps-calendar.html" class="side-nav-link">
+                            <a href="/admin/dashboard" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
                                 <span> Dashboard </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <a data-bs-toggle="collapse" href="#sidebarUtilisateur" aria-expanded="false" aria-controls="sidebarUtilisateur" class="side-nav-link">
                                 <i class="uil-briefcase"></i>
                                 <span> Utilisateurs </span>
                                 <span class="menu-arrow"></span>
                             </a>
-                            <div class="collapse" id="sidebarEcommerce">
+                            <div class="collapse" id="sidebarUtilisateur">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="apps-ecommerce-products.html">Utilisateurs</a>
+                                        <a href="#">Utilisateurs</a>
                                     </li>
                                     <li>
-                                        <a href="apps-ecommerce-products-details.html">Rôles</a>
+                                        <a href="#">Rôles</a>
                                     </li>
                             
                                 </ul>
@@ -67,7 +67,7 @@
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-calendar.html" class="side-nav-link">
+                            <a href="#" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
                                 <span> Déconnexion </span>
                             </a>
