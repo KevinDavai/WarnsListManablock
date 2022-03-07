@@ -108,8 +108,7 @@
                     <div class="d-grid mt-4">
                         <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
             
-                        <a href="https://themes.getbootstrap.com/product/hyper-responsive-admin-dashboard-template/"
-                            class="btn btn-danger mt-3" target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a>
+                        
                     </div>
                 </div> <!-- end padding-->
 
