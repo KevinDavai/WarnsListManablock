@@ -4,20 +4,20 @@
         <nav class="nav">
             <div> 
               <div class="nav_list"> 
-                  <a href="#" class="nav_link active-app"> 
+                  <inertia-link :href="route('dashboard')" class="nav_link" :class="urlPath == '/' ? 'active-app' : '' "> 
                     <i class="fas fa-address-book"></i>                      
                     <span class="nav_name">Ronde</span> 
-                  </a> 
-                  <a href="#" class="nav_link"> 
+                  </inertia-link> 
+                  <inertia-link :href="route('dashboard.doubleacc')" class="nav_link" :class="urlPath == '/double-compte' ? 'active-app' : '' "> 
                     <i class="fas fa-user-check"></i>                      
                     <span class="nav_name">Double compte</span> 
-                  </a> 
-                  <a href="#" class="nav_link"> 
+                  </inertia-link> 
+                  <inertia-link :href="route('dashboard.warns')" class="nav_link" :class="urlPath == '/warns' ? 'active-app' : '' "> 
                     <i class="fas fa-ban"></i>                      
-                    <span class="nav_name">Wiki</span> 
-                  </a> 
+                    <span class="nav_name">Suivi Avertissement</span> 
+                  </inertia-link>  
               </div>
-            </div> <a v-if="$page.props.auth.user.role_id == 3" :href="route('admin.dashboard.index')" class="nav_link"> <i class="fas fa-user-lock"></i> <span class="nav_name">Panel Administrateur</span> </a>
+            </div> <a :href="route('admin.dashboard.index')" v-if="$page.props.auth.user.role_id == 3" class="nav_link"> <i class="fas fa-user-lock"></i> <span class="nav_name">Panel Administrateur</span> </a>
         </nav>
     </div>
     <nav class="navbar p-0 transition-navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top">
@@ -95,6 +95,7 @@ export default {
     return {
       showingNavigationDropdown: false,
       role_name: "",
+      urlPath: location.pathname,
     }
   },
 
@@ -150,20 +151,8 @@ export default {
   mounted() { 
     var body = document.body;
     body.classList.add("bg-19191d");
-    const linkColor = document.querySelectorAll('.nav_link')
-                  console.log(linkColor);
-
-        function colorLink(){
-          if(linkColor){
-            linkColor.forEach(l=> l.classList.remove('active-app'))
-            this.classList.add('active-app')
-          }
-        }
-        linkColor.forEach(l=> l.addEventListener('click', colorLink))
-    //body.id = 'body-pd';
-    var elements = body.getElementsByClassName("modal-backdrop"); // or:
-    if(elements.length >= 1)
-      elements[0].remove();
+    body.classList.remove("modal-open");
+  
 
   }
 }

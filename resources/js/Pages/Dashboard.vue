@@ -4,7 +4,7 @@
     <Preloader>
     </Preloader>
 
-      <a v-if="$page.props.auth.user.role_id != 1" as="button" class="add-btn" data-toggle="modal" data-target="#addrondeModal"><i class="fas fa-plus"></i></a>
+      <a v-if="$page.props.auth.user.role_id != 1" as="button" class="add-btn" data-bs-toggle="modal" data-bs-target="#addrondeModal"><i class="fas fa-plus"></i></a>
 
       <div class="container mt-2">
         <div v-if="$page.props.auth.user.role_id == 1">

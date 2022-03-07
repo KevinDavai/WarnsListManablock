@@ -15,7 +15,11 @@ require("dotenv").config();
 
 mix.js('resources/js/app.js', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
-    .webpackConfig(require('./webpack.config'));
+    .webpackConfig(require('./webpack.config'))
+    .copyDirectory('resources/assets/', 'public/admin/assets');
+
+
+
 
 if (mix.inProduction()) {
     mix.version();

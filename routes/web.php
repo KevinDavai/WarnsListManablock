@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarnsController;
 use App\Http\Controllers\RondesController;
+use App\Http\Controllers\DoubleAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ Route::get('/', [RondesController::class, 'index'])->middleware(['auth', 'verifi
 Route::get('/rondelist', [RondesController::class, 'getListRonde'])->middleware(['auth'])->name('getListRonde');
 Route::get('/getRole', [UserController::class, 'getRole'])->middleware(['auth'])->name('getRoleUser');
 Route::post('/postRonde', [RondesController::class, 'postRonde'])->middleware(['auth'])->name('postRonde');
+
+Route::get('/double-compte', [DoubleAccountController::class, 'index'])->name('dashboard.doubleacc');
+Route::get('/avertissement', [WarnsController::class, 'index'])->name('dashboard.warns');
+
 
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');
