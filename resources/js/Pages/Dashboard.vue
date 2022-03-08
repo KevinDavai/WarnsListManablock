@@ -141,7 +141,7 @@ export default {
         keyword: '',
         rondeListe: [],
         ronde: {
-            description: null,
+            description: '',
             pseudo_moderator: this.$attrs.auth.user.pseudo
         },
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -192,6 +192,8 @@ export default {
 
       createRonde() {
           this.btn_add = false;
+          if(this.ronde.description == '')
+            this.ronde.description = 'RAS';
           axios.post(route('postRonde'), this.ronde).then(() => {
             console.log($);
             $('#addrondeModal').modal('hide');

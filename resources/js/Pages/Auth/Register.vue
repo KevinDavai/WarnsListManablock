@@ -54,6 +54,10 @@ export default {
     Link,
   },
 
+  props: {
+    status: String
+  },
+
   data() {
     return {
       form: this.$inertia.form({

@@ -19984,6 +19984,9 @@ __webpack_require__.r(__webpack_exports__);
     BreezeValidationErrors: _Components_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_6__.Link
   },
+  props: {
+    status: String
+  },
   data: function data() {
     return {
       form: this.$inertia.form({
@@ -20165,7 +20168,7 @@ __webpack_require__.r(__webpack_exports__);
       keyword: '',
       rondeListe: [],
       ronde: {
-        description: null,
+        description: '',
         pseudo_moderator: this.$attrs.auth.user.pseudo
       },
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -20221,6 +20224,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       this.btn_add = false;
+      if (this.ronde.description == '') this.ronde.description = 'RAS';
       axios.post(route('postRonde'), this.ronde).then(function () {
         console.log($);
         $('#addrondeModal').modal('hide');
@@ -21835,7 +21839,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "Register"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_validation_errors, {
     "class": "mb-3"
-  }), _ctx.status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.status), 1
+  }), $props.status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.status), 1
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
