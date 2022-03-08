@@ -4,7 +4,6 @@
     <Preloader>
     </Preloader>
     <div class="alert alert-info alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <h5><i class="icon fas fa-info"></i> Information - Suivi Avertissement</h5>
         <hr>
         Ce système est en cours de développement. Vous serez informé lorsque cette fonctionnalité sera disponible.
