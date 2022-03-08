@@ -77,32 +77,7 @@
     <div class="modal fade" id="addrondeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content text-center no-border">
-          <div class="modal-header d-flex justify-content-center">
-            <p class="heading">Ajouter une ronde</p>
-          </div>
-          <div class="modal-body">
-            <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
-            <div class="card-body text-start">
-
-              <breeze-validation-errors class="mb-3" />
-
-              <div v-if="status" class="alert alert-success mb-3 rounded-0" role="alert">
-                {{ status }}
-              </div>
-
-              <form action="#" @submit.prevent="createRonde()" id="rondeForm">
-
-                <div class="form-label-group mb-3">
-                    <input type="text" class="form-control form-control-lg"  id="floatingInput2" placeholder="name@example.com" v-model="ronde.description"/>
-                    <label for="floatingInput2">Description</label>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer flex-center justify-content-center">
-            <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
-            <input type="submit" form="rondeForm" class="btn-valid-modal waves-effect waves-light" value="Ajouter" data-bs-dismiss="modal" :disabled="!btn_add"> 
-          </div>
+          <AddRondeForm/>
         </div>
       </div>
     </div>
@@ -117,6 +92,7 @@ import Pagination from 'v-pagination-3'
 import MyPagination from '@/Components/Pagination.vue'
 import VueDatepickerUi from 'vue-datepicker-ui'
 import 'vue-datepicker-ui/lib/vuedatepickerui.css';
+import AddRondeForm from '@/Components/AddRondeForm.vue'
 
 
 export default {
@@ -128,6 +104,7 @@ export default {
     Pagination,
     MyPagination,
     Datepicker: VueDatepickerUi,
+    AddRondeForm,
   },
   props: {
     status: String
@@ -140,10 +117,6 @@ export default {
         btn_add: true,
         keyword: '',
         rondeListe: [],
-        ronde: {
-            description: '',
-            pseudo_moderator: this.$attrs.auth.user.pseudo
-        },
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         page: 1,
         index: 0,

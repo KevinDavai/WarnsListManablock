@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rondes;
+use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Rondes;
 use App\Events\RondeAdded;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RondesController extends Controller
 {
@@ -28,12 +30,13 @@ class RondesController extends Controller
     public function postRonde(Request $request)
     {
         $request->validate([
-            'description' => ['string', 'required'],
-            'pseudo_moderator' => ['required'],
+            'description' => ['required'],
         ]);
 
+        $user = User::find(Auth::id());
+
         $ronde = Rondes::create([
-            'pseudo' => $request->pseudo_moderator,
+            'pseudo' => $user->pseudo,
             'description' => $request->description,
         ]);
 

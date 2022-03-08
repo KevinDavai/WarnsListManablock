@@ -23,37 +23,7 @@
 <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content text-center no-border">
-      <div class="modal-header d-flex justify-content-center">
-        <p class="heading">Connexion</p>
-      </div>
-      <div class="modal-body">
-        <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
-        <div class="card-body text-start">
-
-          <breeze-validation-errors class="mb-3" />
-
-          <div v-if="status" class="alert alert-success mb-3 rounded-0" role="alert">
-            {{ status }}
-          </div>
-
-          <form @submit.prevent="submit" id="loginForm">
-            <div class="form-label-group mb-3">
-                <input type="email" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="form.email" required autofocus/>
-                <label for="floatingInput">Email</label>
-            </div>
-
-            <div class="form-label-group mb-3">
-                <input type="password" class="form-control form-control-lg"  id="inputPassword" placeholder="Mot de passe" v-model="form.password" required autocomplete="current-password"/>
-                <label for="inputPassword">Mot de passe</label>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="modal-footer flex-center justify-content-center">
-        <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
-        <input type="submit" form="loginForm" class="btn-valid-modal waves-effect waves-light" value="Se connecter" data-bs-dismiss="modal"> 
-      </div>
+      <LoginForm/>
     </div>
   </div>
 </div>
@@ -62,17 +32,7 @@
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content text-center no-border">
-      <div class="modal-header d-flex justify-content-center">
-        <p class="heading">S'enregistrer</p>
-      </div>
-      <div class="modal-body">
-        <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header"></i>
-        <registerForm></registerForm>
-      </div>
-      <div class="modal-footer flex-center justify-content-center">
-          <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
-          <input type="submit" form="registerForm" class="btn-valid-modal waves-effect waves-light" value="S'enregistrer" data-bs-dismiss="modal"> 
-      </div>  
+      <registerForm/>
     </div>
   </div>
 </div>
@@ -87,7 +47,8 @@ import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
 import Preloader from '@/Components/Preloader.vue'
-import registerForm from '@/Pages/Auth/Register.vue'
+import registerForm from '@/Components/RegisterForm.vue'
+import LoginForm from '@/Components/LoginForm.vue'
 
 export default {
   layout: BreezeGuestLayout,
@@ -102,6 +63,7 @@ export default {
     Link,
     Preloader,
     registerForm,
+    LoginForm,
   },
 
   props: {
