@@ -41,7 +41,7 @@
                   <tr v-for="(ronde, index) in computedRondes.slice(index,index+7)">
                                         <td class="vertical-align-td">
                                             <div class="d-flex align-items-center">
-                                              <div class="profile-head mr-3">
+                                              <div class="profile-head me-3">
                                                 <img class="avatar-head" :src="'https://cravatar.eu/helmavatar/' + ronde.pseudo + '/32.png'">
                                               </div>
                                                 {{ ronde.pseudo }}
@@ -59,7 +59,7 @@
               </table>
             </div>
           <div>
-            <nav class="px-0 px-sm-4 pb-0 pb-sm-4">
+            <nav class="px-0 px-sm-4 pb-0 pb-sm-4 pb-3">
                 <ul class="p-0" style="display: flex; margin: 0px; justify-content: space-between;">
                     <li>
                         <button @click="setPreviousPage" v-if="this.index != 0" type="button" class="left-page-btn"><i class="fas fa-angle-left"></i></button>
@@ -100,7 +100,7 @@
             </div>
           </div>
           <div class="modal-footer flex-center justify-content-center">
-            <button type="button" class="btn-dismis-modal" data-dismiss="modal">Annuler</button>
+            <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
             <input type="submit" form="rondeForm" class="btn-valid-modal waves-effect waves-light" value="Ajouter" data-bs-dismiss="modal" :disabled="!btn_add"> 
           </div>
         </div>

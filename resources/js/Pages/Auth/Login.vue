@@ -51,7 +51,7 @@
       </div>
 
       <div class="modal-footer flex-center justify-content-center">
-        <button type="button" class="btn-dismis-modal" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
         <input type="submit" form="loginForm" class="btn-valid-modal waves-effect waves-light" value="Se connecter" data-bs-dismiss="modal"> 
       </div>
     </div>
@@ -70,7 +70,7 @@
         <registerForm></registerForm>
       </div>
       <div class="modal-footer flex-center justify-content-center">
-          <button type="button" class="btn-dismis-modal" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal">Annuler</button>
           <input type="submit" form="registerForm" class="btn-valid-modal waves-effect waves-light" value="S'enregistrer" data-bs-dismiss="modal"> 
       </div>  
     </div>

@@ -19,7 +19,7 @@
               </div>
             </div> <a :href="route('admin.dashboard.index')" v-if="$page.props.auth.user.role_id == 3" class="nav_link"> <i class="fas fa-user-lock"></i> <span class="nav_name">Panel Administrateur</span> </a>
         </nav>
-    </div>
+  </div>
     <nav class="navbar p-0 transition-navbar bg-navbar-deg navbar-expand navbar-light bg-purple-me sticky-top">
         <div class="header_toggle ml-4 ml-md-0"><i class="fas fa-bars" @click="sideBar" id="header-toggle" aria-hidden="true"></i></div>
 

@@ -22,14 +22,14 @@ use App\Http\Controllers\DoubleAccountController;
 |
 */
 
-Route::get('/', [RondesController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [RondesController::class, 'index'])->middleware(['auth', 'verified', 'NewAuth'])->name('dashboard');
 
-Route::get('/rondelist', [RondesController::class, 'getListRonde'])->middleware(['auth'])->name('getListRonde');
-Route::get('/getRole', [UserController::class, 'getRole'])->middleware(['auth'])->name('getRoleUser');
-Route::post('/postRonde', [RondesController::class, 'postRonde'])->middleware(['auth'])->name('postRonde');
+Route::get('/rondelist', [RondesController::class, 'getListRonde'])->middleware(['auth','NewAuth'])->name('getListRonde');
+Route::get('/getRole', [UserController::class, 'getRole'])->middleware(['auth','NewAuth'])->name('getRoleUser');
+Route::post('/postRonde', [RondesController::class, 'postRonde'])->middleware(['auth','NewAuth'])->name('postRonde');
 
-Route::get('/double-compte', [DoubleAccountController::class, 'index'])->name('dashboard.doubleacc');
-Route::get('/avertissement', [WarnsController::class, 'index'])->name('dashboard.warns');
+Route::get('/double-compte', [DoubleAccountController::class, 'index'])->middleware(['auth', 'NewAuth'])->name('dashboard.doubleacc');
+Route::get('/avertissement', [WarnsController::class, 'index'])->middleware(['auth', 'NewAuth'])->name('dashboard.warns');
 
 
 Route::get('/clear-cache', function() {

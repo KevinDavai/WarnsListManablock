@@ -70,11 +70,6 @@
   flex: 1 1 0%;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1250px;
-  }
-}
 .bg-light {
   background: #f3f4f6 !important;
 }
@@ -1016,13 +1011,6 @@ table {
     padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
   }
 
-  .header_toggle {
-    color: var(--first-color);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem 0 0.5rem 1.5rem;
-  }
-
   .header_img {
     width: 40px;
     height: 40px;
@@ -1054,6 +1042,13 @@ table {
     padding: 7rem 1rem 0 0;
   }
 }
+.header_toggle {
+  color: var(--first-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
 .container-pd {
   padding: 0rem 3.5rem 0rem 0rem !important;
 }
@@ -1093,4 +1088,8 @@ a:hover {
 }
 .left-0per {
   left: 0 !important;
+}
+
+.d-none-me {
+  display: none !important;
 }
