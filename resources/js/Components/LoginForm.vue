@@ -9,13 +9,13 @@
       <div class="modal-body">
         <i class="fas fa-bell fa-4x animated rotateIn mb-4 mt-2 color-modal-header" :class="loading ? 'loading-modal-color-icon' : ''"></i>
         <div class="card-body text-start">
-            <small id="passwordHelp" class="text-danger" v-if="hasError('email')">             
-                {{getError('email')}}
+            <small id="passwordHelp" class="text-danger" v-if="hasError('pseudo')">             
+                {{getError('pseudo')}}
             </small> 
           <form @submit.prevent="storeLogin" id="loginForm" @keydown="clearError" :class="loading ? 'opacity-05' : ''">
             <div class="form-label-group mb-3">
-                <input type="email" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="formData.email" name="email" required autofocus/>
-                <label for="floatingInput">Email</label>
+                <input type="text" class="form-control form-control-lg"  id="floatingInput" placeholder="name@example.com" v-model="formData.pseudo" name="pseudo" required autofocus/>
+                <label for="floatingInput">Pseudo</label>
             </div>
 
             <div class="form-label-group mb-3">
@@ -41,10 +41,10 @@ export default {
     mixins: [FormEdit],
     emits: ["childToParent"],
     data(){
-        return{
+        return{ 
             modalID: '#connexionModal',
             formData: {
-                email: null,
+                pseudo: null,
                 password: null,
             },
         }
