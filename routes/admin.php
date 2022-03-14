@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\UtilisateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard.index');
+Route::get('utilisateur', [AdminController::class, 'utilisateur'])->name('dashboard.utilisateur');
+
+Route::get('getAllUser', [UtilisateurController::class, 'getAll'])->name('dashboard.utilisateur.getAll');
+Route::get('getHisRole/{role_id}', [UtilisateurController::class, 'getHisRole'])->name('dashboard.utilisateur.getHisRole');
+Route::get('getUserWithRole', [AdminController::class, 'getUserWithRole'])->name('dashboard.utilisateur.getUserWithRole');
+Route::post('updateRole', [UtilisateurController::class, 'updateRole'])->name('dashboard.utilisateur.updateRole');
+
+
+
+
