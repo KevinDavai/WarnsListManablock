@@ -22237,7 +22237,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_16, 8
   /* PROPS */
   , _hoisted_12)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-bars",
+    "class": "fas fa-bars min-width-24",
     onClick: _cache[0] || (_cache[0] = function () {
       return $options.sideBar && $options.sideBar.apply($options, arguments);
     }),
@@ -22917,7 +22917,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row justify-content-around\"><div class=\"col-6\"><button style=\"--content:&#39;Connexion&#39;;\" class=\"btn-edit-1\" data-bs-toggle=\"modal\" data-bs-target=\"#connexionModal\"><div class=\"left-app\"></div> Connexion <div class=\"right-app\"></div></button></div><div class=\"col-6\"><button style=\"--content:&#39;S\\&#39;enregistrer&#39;;\" class=\"btn-edit-1\" data-bs-toggle=\"modal\" data-bs-target=\"#registerModal\"><div class=\"left-app\"></div> S&#39;enregistrer <div class=\"right-app\"></div></button></div></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row justify-content-around\"><div class=\"col-auto mb-3\"><button style=\"--content:&#39;Connexion&#39;;\" class=\"btn-edit-1\" data-bs-toggle=\"modal\" data-bs-target=\"#connexionModal\"><div class=\"left-app\"></div> Connexion <div class=\"right-app\"></div></button></div><div class=\"col-auto\"><button style=\"--content:&#39;S\\&#39;enregistrer&#39;;\" class=\"btn-edit-1\" data-bs-toggle=\"modal\" data-bs-target=\"#registerModal\"><div class=\"left-app\"></div> S&#39;enregistrer <div class=\"right-app\"></div></button></div></div>", 1);
 
 var _hoisted_2 = {
   "class": "modal fade",
