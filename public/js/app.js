@@ -20575,7 +20575,10 @@ __webpack_require__.r(__webpack_exports__);
 
         var dateObject = dateMomentObject.toDate(); // convert moment.js object to Date object
 
-        return (_this.startDate === '' || dateObject >= _this.startDate && dateObject <= _this.endDate) && (_this.keyword.length === 0 || item.pseudo.includes(_this.keyword));
+        var keywordLowwer = _this.keyword.toLowerCase();
+
+        var pseudo = item.pseudo.toLowerCase();
+        return (_this.startDate === '' || dateObject >= _this.startDate && dateObject <= _this.endDate) && (_this.keyword.length === 0 || pseudo.includes(keywordLowwer));
       });
     }
   },

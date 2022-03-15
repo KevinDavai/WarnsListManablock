@@ -143,8 +143,10 @@ export default {
         let dateSliced = item.created_at.slice(6);
         var dateMomentObject = moment(dateSliced, "DD/MM/YYYY"); // 1st argument - string, 2nd argument - format
         var dateObject = dateMomentObject.toDate(); // convert moment.js object to Date object
+        var keywordLowwer = this.keyword.toLowerCase();
+        var pseudo = item.pseudo.toLowerCase();
         return (this.startDate === '' || dateObject >= this.startDate && dateObject <= this.endDate)
-                && (this.keyword.length === 0 || item.pseudo.includes(this.keyword))
+                && (this.keyword.length === 0 || pseudo.includes(keywordLowwer))
       })
     },
   },
