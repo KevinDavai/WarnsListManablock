@@ -12,32 +12,39 @@
             </div>
             <!-- end page title -->
 
+            
 
             <div class="row">
                 <div class="col-lg-11">
-                    <table class="table table-striped table-centered mb-0">
-                        <thead>
-                            <tr>
-                                <th>Pseudo</th>
-                                <th>Email</th>
-                                <th>Rôle</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(user, index) in users">
-                                <td class="table-user">
-                                    {{ user.pseudo }}
-                                </td>
-                                <td>{{ user.email }}</td>
-                                <td>{{user.role.name }}</td>
-                                <td class="table-action">
-                                    <a href="javascript: void(0);" class="action-icon" @click="editModal(user)"> <i class="mdi mdi-pencil"></i></a>
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="striped-rows-preview">
+                            <div class="table-responsive-sm">
+                                <table class="table table-striped table-centered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Pseudo</th>
+                                            <th>Email</th>
+                                            <th>Rôle</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(user, index) in users">
+                                            <td class="table-user">
+                                                {{ user.pseudo }}
+                                            </td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{user.role.name }}</td>
+                                            <td class="table-action">
+                                                <a href="javascript: void(0);" class="action-icon" @click="editModal(user)"> <i class="mdi mdi-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                              </div> <!-- end table-responsive-->                     
+                        </div> <!-- end preview-->
+                    </div>
                 </div> <!-- end col-->
             
             </div>
