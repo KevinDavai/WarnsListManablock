@@ -3,14 +3,14 @@
   <Head title="Log in" />
 
       <div class="row justify-content-around">
-      <div class="col-6">
+      <div class="col-auto mb-3">
         <button style="--content: 'Connexion';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#connexionModal">
           <div class="left-app"></div>
             Connexion
           <div class="right-app"></div>
         </button>
       </div>
-      <div class="col-6">
+      <div class="col-auto">
         <button style="--content: 'S\'enregistrer';" class="btn-edit-1" data-bs-toggle="modal" data-bs-target="#registerModal">
           <div class="left-app"></div>
             S'enregistrer
