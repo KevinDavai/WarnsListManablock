@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Rondes extends Model
 {
     use HasFactory;
+  
 
     /**
      * The attributes that are mass assignable.
@@ -21,12 +23,16 @@ class Rondes extends Model
 
 
     /**
-     * The attributes that should be cast.
+     * Prepare a date for array / JSON serialization.
      *
-     * @var array
+     * @param  \DateTimeInterface  $date
+     * @return string
      */
-    protected $casts = [
-        'created_at' => 'datetime:H:i d/m/Y',
-    ];
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
+
+
 
 }
