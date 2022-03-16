@@ -67,8 +67,8 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Paris',
-    
+    'timezone' => 'Europe/London',
+
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
