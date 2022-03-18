@@ -42,7 +42,7 @@
                                         <td class="vertical-align-td">
                                             <div class="d-flex align-items-center">
                                               <div class="profile-head me-3">
-                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + ronde.pseudo">
+                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + ronde.pseudo + '/38'">
                                               </div>
                                                 {{ ronde.pseudo }}
                                             </div>

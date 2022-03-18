@@ -39,7 +39,7 @@
                     </p>
                 </div>
                 <div class="profile-head">
-                  <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + $page.props.auth.user.pseudo">
+                  <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + $page.props.auth.user.pseudo + '/42'">
                 </div>
             </div>
           </ul>
