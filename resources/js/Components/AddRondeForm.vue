@@ -41,6 +41,7 @@ export default {
             formData: {
                 description: '',
             },
+            needReset: true,
         }
     },
     methods:{

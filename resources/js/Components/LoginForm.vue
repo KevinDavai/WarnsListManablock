@@ -47,6 +47,7 @@ export default {
                 pseudo: null,
                 password: null,
             },
+            needReset: true,
         }
     },
     methods:{

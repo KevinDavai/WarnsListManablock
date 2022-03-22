@@ -64,6 +64,7 @@ export default {
                 password: '',
                 password_confirmation: '',
             },
+            needReset: true,
         }
     },
     methods:{

@@ -165,20 +165,6 @@ export default {
         this.endDate = '';
       },
 
-      createRonde() {
-          this.btn_add = false;
-          if(this.ronde.description == '')
-            this.ronde.description = 'RAS';
-          axios.post(route('postRonde'), this.ronde).then(() => {
-            console.log($);
-            $('#addrondeModal').modal('hide');
-          }).then(() => {
-            setTimeout(() => {  
-                console.log("World!");
-                this.btn_add = true; 
-            }, 2000);
-          })
-      },
 
       list(page){
             axios.get(`/rondelist?page=${page}`).then(({data})=>{

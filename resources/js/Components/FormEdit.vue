@@ -84,8 +84,10 @@ export default {
                 console.log(vm.modalID + "has closed")
                 vm.loading = false;
                 vm.errors = {}
-                for(let field in vm.formData) {
-                    vm.formData[field] = null;
+                if(vm.needReset) {
+                    for(let field in vm.formData) {
+                        vm.formData[field] = null;
+                    }
                 }
             })
         })
