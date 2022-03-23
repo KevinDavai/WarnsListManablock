@@ -18,9 +18,12 @@ class DoubleAccount extends Model
     protected $fillable = [
         'description',
         'pseudo',
-        'pseudo_moderator',
+        'moderator',
     ];
 
+    protected $casts = [
+        'pseudo' => 'array',
+    ];
 
     /**
      * Prepare a date for array / JSON serialization.

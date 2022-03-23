@@ -22,7 +22,7 @@
                 <thead>
                   <tr>
                     <th>Pseudos</th>
-                    <th class="w-75">Description</th>
+                    <th class="w-50">Description</th>
                     <th>Modérateur en charge</th>
                   </tr>
                 </thead>
@@ -31,17 +31,26 @@
                   <tr v-for="(doubleAcc, index) in computedDoubleAcc.slice(index,index+7)">
                                         <td class="vertical-align-td">
                                             <div class="d-flex align-items-center">
-                                              <div class="profile-head me-3">
-                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo + '/38'">
+                                              <div class="profile-head me-1">
+                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo[0] + '/32'">
                                               </div>
-                                                {{ doubleAcc.pseudo }}
+                                                {{ doubleAcc.pseudo[0] }}
+                                              <div class="ms-5 profile-head me-1">
+                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo[1] + '/32'">
+                                              </div>
+                                                {{ doubleAcc.pseudo[1] }}
                                             </div>
                                         </td>
                                         <td class="vertical-align-td">
                                             <div :class="{ 'text-nowrap' : doubleAcc.description.length >= 60}" >{{ doubleAcc.description }}</div>
                                         </td>
                                         <td class="vertical-align-td">
-                                            <div>{{ doubleAcc.moderator }}</div>
+                                          <div class="d-flex align-items-center">
+                                              <div class="profile-head me-3">
+                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.moderator + '/32'">
+                                              </div>
+                                                {{ doubleAcc.moderator }}
+                                            </div>
                                         </td>
                                     </tr>
 
@@ -113,8 +122,12 @@ export default {
       this.index = 0;
       
       return this.doubleAccList.filter((item) => {
-        var pseudo = item.pseudo.toLowerCase();
-        return (this.keyword.length === 0 || pseudo.includes(keywordLowwer))
+        for(let pseudo in item.pseudo) {
+          pseudo.toLowerCase();
+        }
+        var keywordLowwer = this.keyword.toLowerCase();
+        var pseudoArr = Array.from(item.pseudo)
+        return (this.keyword.length === 0 || pseudoArr.includes(keywordLowwer))
       })
     },
   },
@@ -152,11 +165,11 @@ export default {
     var pusher = new Pusher('f6e2c5eefed30ef289a8', {
       cluster: 'eu'
     });
-    //var channel = pusher.subscribe('rondes');
-    /*channel.bind('addRonde', function(data) {
+    var channel = pusher.subscribe('double-compte');
+    channel.bind('addDoubleCompte', function(data) {
         console.log(data);
         vm.list(vm.page);
-    });*/
+    });
     
   },
 }

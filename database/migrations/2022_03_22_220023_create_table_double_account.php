@@ -13,8 +13,11 @@ class CreateTableDoubleAccount extends Migration
      */
     public function up()
     {
-        Schema::create('table_double_account', function (Blueprint $table) {
+        Schema::create('double_accounts', function (Blueprint $table) {
             $table->id();
+            $table->json('pseudo');
+            $table->string('description');
+            $table->string('moderator');
             $table->timestamps();
         });
     }

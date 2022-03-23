@@ -16,7 +16,7 @@ class DoubleAccountController extends Controller
         return Inertia::render('Doubleacc');
     }
 
-    public function getListRonde()
+    public function getListDoubleAcc()
     {
         $doubleAcc = DoubleAccount::orderBy('created_at', 'desc')->get();
         return response()->json($doubleAcc);
@@ -34,7 +34,7 @@ class DoubleAccountController extends Controller
         $doubleAcc = DoubleAccount::create([
             'pseudo' => $request->pseudo,
             'description' => $request->description,
-            'pseudo_moderator' => $user->pseudo,
+            'moderator' => $user->pseudo,
         ]);
 
         event(new DoubleAccAdded($doubleAcc));
@@ -49,4 +49,3 @@ class DoubleAccountController extends Controller
         return response($response, 201);
     }
 }
-

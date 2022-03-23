@@ -25,7 +25,6 @@ class DoubleAccAdded
     public function __construct($doubleAcc)
     {
         $this->doubleAcc = $doubleAcc;
-
     }
 
     /**
@@ -35,7 +34,7 @@ class DoubleAccAdded
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('double-compte');
+        return new Channel('double-compte');
     }
 
     /**
