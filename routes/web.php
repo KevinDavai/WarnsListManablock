@@ -34,7 +34,7 @@ Route::post('/postDoubleAcc', [DoubleAccountController::class, 'postDoubleAcc'])
 Route::get('/getRole', [UserController::class, 'getRole'])->middleware(['auth'])->name('getRoleUser');
 
 
-Route::get('/double-compte', [DoubleAccountController::class, 'index'])->middleware(['auth', 'NewAuth', 'admin'])->name('dashboard.doubleacc');
+Route::get('/double-compte', [DoubleAccountController::class, 'index'])->middleware(['auth', 'NewAuth'])->name('dashboard.doubleacc');
 Route::get('/avertissement', [WarnsController::class, 'index'])->middleware(['auth', 'NewAuth'])->name('dashboard.warns');
 
 
