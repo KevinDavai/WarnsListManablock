@@ -8,11 +8,11 @@
                     <i class="fas fa-address-book"></i>                      
                     <span class="nav_name">Ronde</span> 
                   </inertia-link> 
-                  <inertia-link :href="route('admin.dashboard.doubleacc')" class="nav_link" :class="urlPath == '/double-compte' ? 'active-app' : '' "> 
+                  <inertia-link :href="route('dashboard.doubleacc')" class="nav_link" :class="urlPath == '/double-compte' ? 'active-app' : '' "> 
                     <i class="fas fa-user-check"></i>                      
                     <span class="nav_name">Double compte</span> 
                   </inertia-link> 
-                  <inertia-link :href="route('admin.dashboard.warns')" class="nav_link" :class="urlPath == '/warns' ? 'active-app' : '' "> 
+                  <inertia-link :href="route('dashboard.warns')" class="nav_link" :class="urlPath == '/warns' ? 'active-app' : '' "> 
                     <i class="fas fa-ban"></i>                      
                     <span class="nav_name">Suivi Avertissement</span> 
                   </inertia-link>  

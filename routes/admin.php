@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WarnsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UtilisateurController;
-use App\Http\Controllers\DoubleAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +23,6 @@ Route::get('getHisRole/{role_id}', [UtilisateurController::class, 'getHisRole'])
 Route::get('getUserWithRole', [AdminController::class, 'getUserWithRole'])->name('dashboard.utilisateur.getUserWithRole');
 Route::post('updateRole', [UtilisateurController::class, 'updateRole'])->name('dashboard.utilisateur.updateRole');
 
-/**
- * TODO: Remettre les lignes en dessous dans le fichier web pour redonner l'access a tout le monde
- */
-Route::get('/double-compte', [DoubleAccountController::class, 'index'])->name('dashboard.doubleacc');
-Route::get('/avertissement', [WarnsController::class, 'index'])->name('dashboard.warns');
 
 
 
