@@ -69,7 +69,7 @@ export default {
     },
     methods:{
         storeRegister(){
-            this.post(route('register'), this.formData, true)
+            this.post(route('register'), this.formData, true, true)
          },   
         emitToParent (value) {
             this.$emit('childToParent', value)

@@ -46,7 +46,7 @@ export default {
     },
     methods:{
         storeRonde(){
-            this.post(route('postRonde'), this.formData, false)
+            this.post(route('postRonde'), this.formData, false, true)
          },   
         emitToParent (value) {
             this.$emit('childToParent', value)

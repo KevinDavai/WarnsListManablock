@@ -17,12 +17,12 @@ export default {
     },
 
     methods: {
-        post(routeName, data, isRedirectable) {
+        post(routeName, data, isRedirectable, isResetable) {
             this.loading = true;
 
             axios.post(routeName, data).then(response => {
                 $(this.modalID).modal('hide');
-                this.onSuccess()
+                if(isResetable) this.onSuccess()
                 if(isRedirectable) {
                     this.$inertia.get(window.location);
                 }

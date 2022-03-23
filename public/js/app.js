@@ -19235,7 +19235,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     storeDoubleAcc: function storeDoubleAcc() {
       this.checkNullablePseudo();
-      this.post(route('postDoubleAcc'), this.formData, false);
+      this.post(route('postDoubleAcc'), this.formData, false, false);
     },
     emitToParent: function emitToParent(value) {
       this.$emit('childToParent', value);
@@ -19314,7 +19314,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     storeRonde: function storeRonde() {
-      this.post(route('postRonde'), this.formData, false);
+      this.post(route('postRonde'), this.formData, false, true);
     },
     emitToParent: function emitToParent(value) {
       this.$emit('childToParent', value);
@@ -19532,14 +19532,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    post: function post(routeName, data, isRedirectable) {
+    post: function post(routeName, data, isRedirectable, isResetable) {
       var _this = this;
 
       this.loading = true;
       axios.post(routeName, data).then(function (response) {
         $(_this.modalID).modal('hide');
-
-        _this.onSuccess();
+        if (isResetable) _this.onSuccess();
 
         if (isRedirectable) {
           _this.$inertia.get(window.location);
@@ -19742,7 +19741,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     storeLogin: function storeLogin() {
-      this.post(route('login'), this.formData, true);
+      this.post(route('login'), this.formData, true, true);
     },
     emitToParent: function emitToParent(value) {
       this.$emit('childToParent', value);
@@ -19894,7 +19893,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     storeRegister: function storeRegister() {
-      this.post(route('register'), this.formData, true);
+      this.post(route('register'), this.formData, true, true);
     },
     emitToParent: function emitToParent(value) {
       this.$emit('childToParent', value);
@@ -20807,7 +20806,7 @@ __webpack_require__.r(__webpack_exports__);
     list: function list(page) {
       var _this3 = this;
 
-      axios.get("/doubleAccountlist?page=".concat(page)).then(function (_ref) {
+      axios.get("/doubleAccList?page=".concat(page)).then(function (_ref) {
         var data = _ref.data;
         _this3.doubleAccList = data;
       })["catch"](function (_ref2) {

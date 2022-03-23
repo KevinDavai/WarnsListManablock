@@ -142,7 +142,7 @@ export default {
       },
 
       list(page){
-            axios.get(`/doubleAccountlist?page=${page}`).then(({data})=>{
+            axios.get(`/doubleAccList?page=${page}`).then(({data})=>{
                 this.doubleAccList = data
             }).catch(({ response })=>{
                 console.error(response)

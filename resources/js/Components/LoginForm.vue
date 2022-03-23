@@ -52,7 +52,7 @@ export default {
     },
     methods:{
         storeLogin(){
-            this.post(route('login'), this.formData, true)
+            this.post(route('login'), this.formData, true, true)
          },   
         emitToParent (value) {
             this.$emit('childToParent', value)

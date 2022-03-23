@@ -88,7 +88,7 @@ export default {
     methods:{
         storeDoubleAcc(){
             this.checkNullablePseudo();
-            this.post(route('postDoubleAcc'), this.formData, false)
+            this.post(route('postDoubleAcc'), this.formData, false, false)
          },   
         emitToParent (value) {
             this.$emit('childToParent', value)
