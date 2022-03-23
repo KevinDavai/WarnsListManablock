@@ -6,7 +6,7 @@ use Closure;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
-class AdminAuth
+class moderatorAuth
 {
     /**
      * Handle an incoming request.
@@ -18,8 +18,7 @@ class AdminAuth
     public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
-
-        if($user === null || $user->isAdmin() != 1){
+        if($user === null || $user->role_id !== 2){
             return Inertia::render('403');
         }
 
