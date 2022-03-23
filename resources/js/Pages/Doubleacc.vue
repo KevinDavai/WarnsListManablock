@@ -42,14 +42,16 @@
                           </div>
                             {{ doubleAcc.pseudo[0] }}
                         </div>
-                        <div class="accordian-body collapse" :id="'collapse' + index">
-                          <div class="d-flex align-items-center">
-                            <div class="profile-head me-3">
-                              <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo[1] + '/32'">
+                        <div class="accordian-body">
+                          <div class="collapse unset-height" :id="'collapse' + index">
+                            <div class="d-flex align-items-center mb-1 mt-1" v-for="(psed, idx) in doubleAcc.pseudo.slice(1)">
+                              <div class="profile-head me-3">
+                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + psed + '/32'">
+                              </div>
+                                {{ psed }}
                             </div>
-                              {{ doubleAcc.pseudo[1] }}
                           </div>
-                        </div>                                      
+                        </div>
                       </div>
                     </td>
                     <td class="align-middle">
@@ -133,12 +135,24 @@ export default {
       this.index = 0;
       
       return this.doubleAccList.filter((item) => {
-        for(let pseudo in item.pseudo) {
-          pseudo.toLowerCase();
+        var lower = [];
+        for (let i = 0; i <= 5; i++) {
+          if(item.pseudo[i] === undefined)
+            lower.push('');
+          else
+            lower.push(item.pseudo[i].toLowerCase())
         }
+        console.log(lower)
         var keywordLowwer = this.keyword.toLowerCase();
-        var pseudoArr = Array.from(item.pseudo)
-        return (this.keyword.length === 0 || pseudoArr[0].includes(keywordLowwer) || pseudoArr[1].includes(keywordLowwer))
+        return this.keyword.length === 0 
+                || lower[0].includes(keywordLowwer) 
+                || lower[1].includes(keywordLowwer) 
+                || lower[2].includes(keywordLowwer) 
+                || lower[3].includes(keywordLowwer) 
+                || lower[4].includes(keywordLowwer) 
+                || lower[5].includes(keywordLowwer) 
+
+
       })
     },
   },
@@ -151,7 +165,10 @@ export default {
               this.doubleAccList = res.data;
           });
       },
-
+      isMultiple(index) {
+        if(this.computedDoubleAcc[index].pseudo.length > 2) console.log(index + " OUI"); return true
+        return false
+      },
       list(page){
             axios.get(`/doubleAccList?page=${page}`).then(({data})=>{
                 this.doubleAccList = data
