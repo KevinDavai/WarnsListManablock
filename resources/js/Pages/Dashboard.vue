@@ -141,6 +141,7 @@ export default {
       
       return this.rondeListe.filter((item) => {
         let dateSliced = item.created_at.slice(6);
+        console.log(dateSliced);
         var dateMomentObject = moment(dateSliced, "DD/MM/YYYY"); // 1st argument - string, 2nd argument - format
         var dateObject = dateMomentObject.toDate(); // convert moment.js object to Date object
         var keywordLowwer = this.keyword.toLowerCase();

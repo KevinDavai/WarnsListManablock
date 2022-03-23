@@ -621,6 +621,10 @@ a.waves-light {
   background-color: #9395ce !important;
 }
 
+.hiddenRow {
+  padding: 0 !important;
+}
+
 table {
   border-spacing: 0px 4px;
 }
@@ -930,6 +934,10 @@ table {
     color: #777;
   }
 }
+.color-primary-me {
+  color: #6066d6;
+}
+
 .active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
   border-bottom: 2px solid #6066d6;
   box-shadow: 0 0px 0 0 #6066d6;
@@ -1198,6 +1206,10 @@ a:hover {
     min-width: 0px !important;
   }
 }
+table td div {
+  height: 100%;
+}
+
 .left-0per {
   left: 0 !important;
 }

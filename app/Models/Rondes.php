@@ -30,7 +30,7 @@ class Rondes extends Model
      */
     protected function serializeDate(DateTimeInterface $date)
     {
-        return $date->format('Y-m-d H:i:s');
+        return $date->format('H:i d/m/y');
     }
 
 

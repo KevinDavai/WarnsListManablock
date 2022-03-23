@@ -21,39 +21,50 @@
               <table class="table table-dark bg-19191d table-borderless card-1 p-4 table-striped table-hover">
                 <thead>
                   <tr>
+                  	<th></th>
                     <th>Pseudos</th>
                     <th class="w-50">Description</th>
                     <th>Modérateur en charge</th>
                   </tr>
                 </thead>
                 <tbody>
-              
-                  <tr v-for="(doubleAcc, index) in computedDoubleAcc.slice(index,index+7)">
-                                        <td class="vertical-align-td">
-                                            <div class="d-flex align-items-center">
-                                              <div class="profile-head me-1">
-                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo[0] + '/32'">
-                                              </div>
-                                                {{ doubleAcc.pseudo[0] }}
-                                              <div class="ms-5 profile-head me-1">
-                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo[1] + '/32'">
-                                              </div>
-                                                {{ doubleAcc.pseudo[1] }}
-                                            </div>
-                                        </td>
-                                        <td class="vertical-align-td">
-                                            <div :class="{ 'text-nowrap' : doubleAcc.description.length >= 60}" >{{ doubleAcc.description }}</div>
-                                        </td>
-                                        <td class="vertical-align-td">
-                                          <div class="d-flex align-items-center">
-                                              <div class="profile-head me-3">
-                                                <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.moderator + '/32'">
-                                              </div>
-                                                {{ doubleAcc.moderator }}
-                                            </div>
-                                        </td>
-                                    </tr>
-
+                  <tr data-bs-toggle="collapse" class="accordion-toggle" :data-bs-target="'#collapse' + index" v-for="(doubleAcc, index) in computedDoubleAcc.slice(index,index+7)">
+                    <td>
+                      <div style="height: 28px" class="d-flex align-items-end justify-content-center">
+                          <i class="fas fa-angle-down color-primary-me fa-lg"></i>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex flex-column">
+                        <div class="d-flex align-items-center mb-1 mt-1">
+                          <div class="profile-head me-3">
+                            <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo[0] + '/32'">
+                          </div>
+                            {{ doubleAcc.pseudo[0] }}
+                        </div>
+                        <div class="accordian-body collapse" :id="'collapse' + index">
+                          <div class="d-flex align-items-center">
+                            <div class="profile-head me-3">
+                              <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.pseudo[1] + '/32'">
+                            </div>
+                              {{ doubleAcc.pseudo[1] }}
+                          </div>
+                        </div>                                      
+                      </div>
+                    </td>
+                    <td class="align-middle">
+                        <div  :class="{ 'text-nowrap' : doubleAcc.description.length >= 60}" >{{ doubleAcc.description }}</div>
+                    </td>
+                    <td class="align-middle">
+                      <div class="d-flex align-items-center">
+                          <div class="profile-head me-3">
+                            <img class="avatar-head" :src="'https://mc-heads.net/avatar/' + doubleAcc.moderator + '/32'">
+                          </div>
+                            {{ doubleAcc.moderator }}
+                        </div>
+                    </td>
+                  </tr>
+                  
                 </tbody>
               </table>
             </div>
@@ -127,7 +138,7 @@ export default {
         }
         var keywordLowwer = this.keyword.toLowerCase();
         var pseudoArr = Array.from(item.pseudo)
-        return (this.keyword.length === 0 || pseudoArr.includes(keywordLowwer))
+        return (this.keyword.length === 0 || pseudoArr[0].includes(keywordLowwer) || pseudoArr[1].includes(keywordLowwer))
       })
     },
   },
@@ -154,7 +165,7 @@ export default {
           }
         },
       setNextPage() {
-        if(this.index < this.computedRondes.length - 7) {
+        if(this.index < this.computedDoubleAcc.length - 7) {
           this.index = this.index + 7;
         }
       },

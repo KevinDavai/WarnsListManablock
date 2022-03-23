@@ -34,10 +34,6 @@ Route::post('/postDoubleAcc', [DoubleAccountController::class, 'postDoubleAcc'])
 Route::get('/getRole', [UserController::class, 'getRole'])->middleware(['auth','NewAuth'])->name('getRoleUser');
 
 
-Route::get('/double-compte', [DoubleAccountController::class, 'index'])->middleware(['auth', 'NewAuth'])->name('dashboard.doubleacc');
-Route::get('/avertissement', [WarnsController::class, 'index'])->middleware(['auth', 'NewAuth'])->name('dashboard.warns');
-
-
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');
     // return what you want
