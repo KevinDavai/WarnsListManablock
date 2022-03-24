@@ -7,10 +7,6 @@
       <a v-if="$page.props.auth.user.role_id != 1" as="button" class="add-btn" data-bs-toggle="modal" data-bs-target="#addrondeModal"><i class="fas fa-plus"></i></a>
 
       <div class="container mt-2">
-        <div v-if="$page.props.auth.user.role_id == 1">
-          <p class="text-white text-center">Ton compte est en attente de validation</p>
-        </div>
-        <div v-else>
 
             <!-- Search form -->
             <div class="row justify-content-around px-4">
@@ -71,7 +67,6 @@
             </nav>
         </div>
       </div>
-    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="addrondeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
