@@ -25,6 +25,6 @@ class Warns extends Model
      */
     protected function serializeDate(DateTimeInterface $date)
     {
-        return $date->format('H:i d/m/y');
+        return $date->format('d/m/y');
     }
 }

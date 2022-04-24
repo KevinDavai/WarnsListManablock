@@ -24,7 +24,7 @@
           <div class="form-label-group mb-3">
             <input class="form-control form-control-lg" type="text" placeholder="Search" id="floatingInput"
               aria-label="Search" v-model="this.keyword">
-            <label class="floatingLabelSearch" for="floatingInput">Search</label>
+            <label class="floatingLabelSearch" for="floatingInput">Recherche</label>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
               <table class="table table-dark bg-19191d table-borderless card-1 p-4 table-striped table-hover">
           <thead>
             <tr>
-              <th class="col-1 p-top-table"><span class="ms-2">Pseudo</span></th>
+              <th class="col-1 p-top-table"><span class="ms-2">Pseudo joueur</span></th>
               <th class="col-1 p-top-table"><span class="ms-2">Averti par</span></th>
               <th class="col-2 p-top-table"><span class="ms-2">Raison</span></th>
               <th class="col-4 p-top-table"><span class="ms-2">Description</span></th>
@@ -42,19 +42,17 @@
           </thead>
           <tbody>
             <tr v-for="(warn, index) in computedWarns.slice(index,index+7)">
-              <td>
-                <div class="p-2 d-flex flex-row align-items-center">
-                  <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{ warn.pseudo }}</span>
-                  </div>
-                </div>
+
+              <td class="vertical-align-td">
+                <div class="d-flex align-items-center"><div class="profile-head me-2"><img class="avatar-head" :src="'https://mc-heads.net/avatar/' + warn.pseudo + '/32'"></div> {{warn.pseudo}}</div>
               </td>
-              <td>
-                <div class="p-2"> <span class="font-weight-bold">{{ warn.moderateur }}</span> </div>
+              <td class="vertical-align-td">
+                <div class="d-flex align-items-center"><div class="profile-head me-2"><img class="avatar-head" :src="'https://mc-heads.net/avatar/' + warn.moderator + '/32'"></div> {{ warn.moderator }}</div>
               </td>
-              <td>
+              <td class="vertical-align-td">
                 <div class="p-2 d-flex flex-column"> <span>{{ warn.warn_name }}</span> </div>
               </td>
-              <td>
+              <td class="vertical-align-td">
                 <div class="p-2 d-flex flex-column"> <span>{{ warn.description }}</span> </div>
               </td>
               <td>
@@ -176,7 +174,7 @@
 
       list(page) {
         axios.get(`/warnList?page=${page}`).then(({ data }) => {
-          this.warnList = data
+          this.warnListe = data
         }).catch(({ response }) => {
           console.error(response)
         })
