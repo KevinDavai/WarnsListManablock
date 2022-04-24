@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-label-group mb-3">
-                <input type="password" class="form-control form-control-lg"  id="inputPassword" placeholder="Mot de passe" v-model="formData.password" name="email" required autocomplete="current-password"/>
+                <input type="password" class="form-control form-control-lg"  id="inputPassword" placeholder="Mot de passe" v-model="formData.password" name="password" required autocomplete="current-password"/>
                 <label for="inputPassword">Mot de passe</label>
             </div>
           </form>
@@ -28,7 +28,7 @@
 
       <div class="modal-footer flex-center justify-content-center">
         <button type="button" class="btn-dismis-modal" data-bs-dismiss="modal" @click.prevent="reset">Annuler</button>
-        <input type="submit" :disabled="hasAnyError" form="loginForm" :class="hasError('email') ? 'opacity-05' : ''" class="btn-valid-modal waves-effect waves-light" value="Se connecter"> 
+        <input type="submit" form="loginForm" class="btn-valid-modal waves-effect waves-light" value="Se connecter"> 
       </div>
 
 </template>

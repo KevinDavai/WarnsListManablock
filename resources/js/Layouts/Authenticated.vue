@@ -4,7 +4,7 @@
       <nav class="nav">
         <div>
           <div class="nav_list">
-            <inertia-link :href="route('dashboard')" class="nav_link" :class="urlPath == '/' ? 'active-app' : '' ">
+            <inertia-link v-if="$page.props.auth.user.role_id != 4" :href="route('dashboard')" class="nav_link" :class="urlPath == '/' ? 'active-app' : '' ">
               <i class="fas fa-address-book"></i>
               <span class="nav_name">Ronde</span>
             </inertia-link>
@@ -13,8 +13,8 @@
               <i class="fas fa-user-check"></i>
               <span class="nav_name">Double compte</span>
             </inertia-link>
-            <inertia-link :href="route('dashboard.warns')" class="nav_link"
-              :class="urlPath == '/warns' ? 'active-app' : '' ">
+            <inertia-link v-if="$page.props.auth.user.role_id != 4" :href="route('dashboard.warns')" class="nav_link"
+              :class="urlPath == '/avertissement' ? 'active-app' : '' ">
               <i class="fas fa-ban"></i>
               <span class="nav_name">Suivi Avertissement</span>
             </inertia-link>

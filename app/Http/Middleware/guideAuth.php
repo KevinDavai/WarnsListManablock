@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
-class moderatorAuth
+class guideAuth
 {
     /**
      * Handle an incoming request.
@@ -18,11 +19,10 @@ class moderatorAuth
     public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
-        if($user === null || $user->role_id != 2 && $user->isAdmin() != 1){
-            return Inertia::render('403');
+        if($user === null || $user->role_id == 4){
+            return Redirect::route('dashboard.doubleacc');
         }
 
         return $next($request);
-
     }
 }

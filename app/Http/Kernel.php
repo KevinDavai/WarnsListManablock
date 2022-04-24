@@ -4,6 +4,8 @@ namespace App\Http;
 
 use App\Http\Middleware\NewAuth;
 use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\guideAuth;
+use App\Http\Middleware\moderatorAuth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -58,6 +60,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'NewAuth' => \App\Http\Middleware\NewAuth::class,
+        'moderator' => \App\Http\Middleware\moderatorAuth::class,
+        'guide' => \App\Http\Middleware\guideAuth::class,
         'admin' => \App\Http\Middleware\AdminAuth::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
