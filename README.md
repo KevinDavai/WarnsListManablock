@@ -32,9 +32,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://gfycat.com/forsakeninbornimpala)
-[![Product Name Screen Shot][product-screenshot2]](https://i.imgur.com/Dn9HfVq.png)
+[![Watch the video](https://i.imgur.com/JPuS5Az.png)](https://www.youtube.com/watch?v=ZfeyoGPqLIc)
 
 The interest of this project was to create a Warn liste and to learn this magnificent Laravel framework with VueJS
 
