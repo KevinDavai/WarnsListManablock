@@ -1,4 +1,3 @@
-
 <template>
     <admin-layout>
         <div class="container-fluid">
@@ -12,14 +11,17 @@
             </div>
             <!-- end page title -->
 
-            
-
             <div class="row">
                 <div class="col-lg-11">
                     <div class="tab-content">
-                        <div class="tab-pane show active" id="striped-rows-preview">
+                        <div
+                            class="tab-pane show active"
+                            id="striped-rows-preview"
+                        >
                             <div class="table-responsive-sm">
-                                <table class="table table-striped table-centered mb-0">
+                                <table
+                                    class="table table-striped table-centered mb-0"
+                                >
                                     <thead>
                                         <tr>
                                             <th>Pseudo</th>
@@ -34,31 +36,65 @@
                                                 {{ user.pseudo }}
                                             </td>
                                             <td>{{ user.email }}</td>
-                                            <td>{{user.role.name }}</td>
+                                            <td>{{ user.role.name }}</td>
                                             <td class="table-action">
-                                                <a href="javascript: void(0);" class="action-icon" @click="editModal(user)"> <i class="mdi mdi-pencil"></i></a>
+                                                <a
+                                                    href="javascript: void(0);"
+                                                    class="action-icon me-2"
+                                                    @click="editModal(user)"
+                                                >
+                                                    <i
+                                                        class="mdi mdi-pencil"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript: void(0);"
+                                                    class="action-icon"
+                                                    @click="
+                                                        deleteUserModal(user)
+                                                    "
+                                                >
+                                                    <i
+                                                        class="mdi mdi-close-box"
+                                                    ></i
+                                                ></a>
                                             </td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
-                              </div> <!-- end table-responsive-->                     
-                        </div> <!-- end preview-->
+                            </div>
+                            <!-- end table-responsive-->
+                        </div>
+                        <!-- end preview-->
                     </div>
-                </div> <!-- end col-->
-            
+                </div>
+                <!-- end col-->
             </div>
             <!-- end row -->
         </div>
         <!-- container -->
 
         <!-- Large modal -->
-        <div class="modal fade" id="modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div
+            class="modal fade"
+            id="modal-lg"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myLargeModalLabel"
+            aria-hidden="true"
+        >
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">Edition de l'utilisateur</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" id="myLargeModalLabel">
+                            Edition de l'utilisateur
+                        </h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-hidden="true"
+                        ></button>
                     </div>
                     <form @submit.prevent="postEdit" id="editRoleForm">
                         <div class="modal-body">
@@ -77,64 +113,161 @@
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-danger text-uppercase" style="letter-spacing: 0.1em;" @click="closeModal">Cancel</button>
-                            <button type="submit" form="editRoleForm" class="btn btn-info text-uppercase" style="letter-spacing: 0.1em;">Edit</button>
+                            <button
+                                type="button"
+                                class="btn btn-danger text-uppercase"
+                                style="letter-spacing: 0.1em"
+                                @click="closeModal"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="submit"
+                                form="editRoleForm"
+                                class="btn btn-info text-uppercase"
+                                style="letter-spacing: 0.1em"
+                            >
+                                Edit
+                            </button>
                         </div>
                     </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!-- Large modal -->
+        <div
+            class="modal fade"
+            id="modal-lg-delete"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myLargeModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">
+                            Suppression de l'utilisateur
+                        </h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-hidden="true"
+                        ></button>
+                    </div>
+                    <form @submit.prevent="postRemove" id="deleteForm">
+                        <div class="modal-footer justify-content-between">
+                            <button
+                                type="button"
+                                class="btn btn-danger text-uppercase"
+                                style="letter-spacing: 0.1em"
+                                @click="closeModalDelete"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="submit"
+                                form="deleteForm"
+                                class="btn btn-info text-uppercase"
+                                style="letter-spacing: 0.1em"
+                            >
+                                Supprimer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
     </admin-layout>
 </template>
 
 <script>
-    import AdminLayout from '../../Layouts/AdminLayout.vue'
-    import axios from 'axios';
-    import Multiselect from '@suadelabs/vue3-multiselect'
+import AdminLayout from "../../Layouts/AdminLayout.vue";
+import axios from "axios";
+import Multiselect from "@suadelabs/vue3-multiselect";
 
+export default {
+    components: { AdminLayout, axios, Multiselect },
+    props: ["roles", "users"],
 
-    export default {
-        components: { AdminLayout, axios, Multiselect },
-        props: ['roles', 'users'],
-
-        data() {
-            return {
-                users: this.users,
-                form: this.$inertia.form({
-                    user: null,
-                    role: null,
-                }),
-                roleOptions: this.roles,
-            }
+    data() {
+        return {
+            users: this.users,
+            form: this.$inertia.form({
+                user: null,
+                role: null,
+            }),
+            formDelete: this.$inertia.form({
+                user: null,
+            }),
+            roleOptions: this.roles,
+        };
+    },
+    methods: {
+        editModal(user) {
+            $("#modal-lg").modal("show");
+            this.form.user = user;
+            this.form.role = user.role;
         },
-        methods: {
-            editModal(user) {
-                $('#modal-lg').modal('show');
-                this.form.user = user;
-                this.form.role = user.role;
-            },
-            addRole(role) {
-                this.form.role = role.role;
-            },
-            closeModal() {
-                this.form.reset()
-                $('#modal-lg').modal('hide')
-            },
-            postEdit() {
-                axios.post(this.route('admin.dashboard.utilisateur.updateRole', this.form)).then(response => {
-                    $('#modal-lg').modal('hide')
+        deleteUserModal(user) {
+            $("#modal-lg-delete").modal("show");
+            this.form.user = user;
+        },
+        addRole(role) {
+            this.form.role = role.role;
+        },
+        closeModal() {
+            this.form.reset();
+            $("#modal-lg").modal("hide");
+        },
+        closeModalDelete() {
+            this.form.reset();
+            $("#modal-lg-delete").modal("hide");
+        },
+        postEdit() {
+            axios
+                .post(
+                    this.route(
+                        "admin.dashboard.utilisateur.updateRole",
+                        this.form
+                    )
+                )
+                .then((response) => {
+                    $("#modal-lg").modal("hide");
                     this.refreshUser();
-                })
-            },
-            refreshUser() {
-                axios.get(this.route('admin.dashboard.utilisateur.getUserWithRole')).then(response => {
+                });
+        },
+
+        postRemove() {
+            console.log("remove");
+            axios
+                .post(
+                    this.route(
+                        "admin.dashboard.utilisateur.deleteUser",
+                        this.form
+                    )
+                )
+                .then((response) => {
+                    $("#modal-lg-delete").modal("hide");
+                });
+        },
+        refreshUser() {
+            axios
+                .get(this.route("admin.dashboard.utilisateur.getUserWithRole"))
+                .then((response) => {
                     this.users = response.data;
-                })
-            },
-        }
-    }
-    
+                });
+        },
+    },
+};
 </script>
 
 <style src="@suadelabs/vue3-multiselect/dist/vue3-multiselect.css"></style>
-

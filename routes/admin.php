@@ -21,6 +21,8 @@ Route::get('utilisateur', [AdminController::class, 'utilisateur'])->name('dashbo
 Route::get('getAllUser', [UtilisateurController::class, 'getAll'])->name('dashboard.utilisateur.getAll');
 Route::get('getHisRole/{role_id}', [UtilisateurController::class, 'getHisRole'])->name('dashboard.utilisateur.getHisRole');
 Route::get('getUserWithRole', [AdminController::class, 'getUserWithRole'])->name('dashboard.utilisateur.getUserWithRole');
+Route::post('deleteUser', [UtilisateurController::class, 'deleteUser'])->name('dashboard.utilisateur.deleteUser');
+
 Route::post('updateRole', [UtilisateurController::class, 'updateRole'])->name('dashboard.utilisateur.updateRole');
 
 

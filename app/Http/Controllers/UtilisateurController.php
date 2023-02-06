@@ -42,4 +42,25 @@ class UtilisateurController extends Controller
         return response($response, 201);
 
     }
+
+    public function deleteUser(Request $request) {
+        
+
+        $request->validate([
+            'user' => ['required'],
+        ]);
+
+        $user = User::find($request->user['id']);
+
+        $user->delete();
+
+        // Send response
+        $response = [
+            'error' => false,
+            'message' => "Succes",
+        ];
+
+        return response($response, 201);
+
+    }
 }
